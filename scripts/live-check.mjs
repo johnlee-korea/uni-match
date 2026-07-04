@@ -1,0 +1,25 @@
+// 라이브 배포 검증 — GitHub Pages URL에서 데이터 로딩·렌더 확인
+import puppeteer from 'puppeteer-core';
+import { fileURLToPath } from 'node:url';
+const EDGE = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
+const OUT = fileURLToPath(new URL('../scratch/', import.meta.url));
+const URL_LIVE = 'https://johnlee-korea.github.io/uni-match/';
+const b = await puppeteer.launch({ executablePath: EDGE, headless: 'new', args: ['--no-sandbox'] });
+const p = await b.newPage();
+await p.setViewport({ width: 390, height: 840, deviceScaleFactor: 2 });
+const errs = [];
+p.on('pageerror', e => errs.push(e.message));
+p.on('requestfailed', r => errs.push('reqfail:' + r.url()));
+await p.goto(URL_LIVE, { waitUntil: 'networkidle0', timeout: 30000 });
+await p.waitForSelector('#score', { timeout: 15000 });
+await p.evaluate(() => localStorage.clear());
+await p.reload({ waitUntil: 'networkidle0' });
+await p.waitForSelector('#score');
+await p.type('#score', '3.00');
+await p.click('#go');
+await p.waitForSelector('.summary-cell', { timeout: 15000 });
+const sum = await p.$$eval('.summary-cell', els => els.map(e => e.querySelector('.l').textContent + e.querySelector('.n').textContent).join(' · '));
+const cards = await p.$$eval('.card', els => els.length);
+console.log('요약:', sum, '| 카드수:', cards, '| 에러:', errs.length ? errs.slice(0, 3) : '없음');
+await p.screenshot({ path: OUT + 'live.png', fullPage: false });
+await b.close();
