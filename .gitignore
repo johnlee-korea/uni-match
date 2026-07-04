@@ -1,0 +1,13 @@
+# 원본 PDF — 커밋 금지 (저작권/용량)
+raw/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# 개발용 임시 산출물(렌더 이미지·스크린샷)
+scratch/
+
+# OS
+.DS_Store
+Thumbs.db

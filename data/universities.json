@@ -1,0 +1,19 @@
+{
+  "region": "천안",
+  "year": 2026,
+  "note": "대학×구분별 JSON 분리 로딩 매니페스트. 파일 추가만으로 대학 확장.",
+  "universities": [
+    {
+      "code": "DKU2",
+      "name": "단국대학교",
+      "campus": "천안캠퍼스",
+      "campusMerged": false,
+      "files": [
+        "dku2_2026_susi_gyo.json",
+        "dku2_2026_susi_jong.json",
+        "dku2_2026_jungsi.json"
+      ]
+    }
+  ],
+  "pending": ["BU", "KNU", "NSU", "KOREATECH", "HOSEO2", "SMU2", "KONGJU2"]
+}

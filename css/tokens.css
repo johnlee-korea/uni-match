@@ -1,0 +1,51 @@
+/* 디자인 토큰 — "차분한 신뢰 + 또렷한 판정".
+   색은 정보다: 판정 4색 + 참고색은 배지·스케일바·요약 스트립에서만 사용. 그 외 UI는 무채색. */
+:root {
+  /* 바탕·잉크(무채색) */
+  --bg:        #FAFBFC;
+  --surface:   #FFFFFF;
+  --ink:       #1F2937;
+  --ink-2:     #4B5563;   /* 보조 텍스트 */
+  --ink-3:     #9CA3AF;   /* 흐린 텍스트 */
+  --line:      #E5E7EB;   /* 구분선 */
+  --line-2:    #EEF1F4;
+  --hover:     #F3F5F7;
+
+  /* 판정 5색(색=정보) */
+  --v-reach2:  #D64545;   /* 초상향 빨강 */
+  --v-reach1:  #E8883A;   /* 상향 주황 */
+  --v-fit:     #2E9E5B;   /* 적정 초록 */
+  --v-safe:    #3B82C4;   /* 안정 파랑 */
+  --v-ref:     #8B7EC8;   /* 참고(종합) 보라 */
+  --v-none:    #9CA3AF;   /* 정보없음 회색 */
+
+  /* 판정 배지 배경(연한 톤, 텍스트는 진한 동색) */
+  --v-reach2-bg: #FBEAEA;
+  --v-reach1-bg: #FCEFE2;
+  --v-fit-bg:    #E6F4EC;
+  --v-safe-bg:   #E6EFF8;
+  --v-ref-bg:    #EDEAF6;
+  --v-none-bg:   #F1F3F5;
+
+  /* 간격 */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-8: 32px;
+
+  /* 반경·그림자 */
+  --r-1: 8px; --r-2: 12px; --r-3: 16px; --r-pill: 999px;
+  --shadow-1: 0 1px 2px rgba(17,24,39,.04), 0 1px 3px rgba(17,24,39,.06);
+  --shadow-2: 0 4px 16px rgba(17,24,39,.10);
+
+  /* 타이포 */
+  --font: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+          'Malgun Gothic', 'Segoe UI', system-ui, sans-serif;
+  --fs-hero: 28px;
+  --fs-lg: 20px;
+  --fs-md: 16px;
+  --fs-sm: 14px;
+  --fs-xs: 12px;
+
+  /* 레이아웃 */
+  --maxw: 960px;
+  --sticky-h: 52px;
+}
