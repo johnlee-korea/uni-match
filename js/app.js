@@ -132,6 +132,8 @@ function renderInput() {
       2026 입시결과 기반 참고 자료이며 합격을 보장하지 않습니다.
       <button id="more-disc">자세히 보기</button>
     </div>
+
+    <p class="cheer">이시호 화이팅 아빠가 응원해♥</p>
   </section>`;
 }
 
