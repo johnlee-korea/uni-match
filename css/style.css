@@ -143,6 +143,12 @@ button { font-family: inherit; cursor: pointer; }
   transition: border-color .16s var(--ease), color .16s var(--ease), background .16s var(--ease);
 }
 .btn-ghost:hover { border-color: var(--ink-3); color: var(--ink); background: var(--hover); }
+.btn-reset {
+  display: block; margin: var(--sp-3) auto 0; padding: var(--sp-2) var(--sp-4);
+  background: none; border: none; color: var(--ink-3); font-size: var(--fs-sm);
+  min-height: 40px; transition: color .16s var(--ease);
+}
+.btn-reset:hover { color: var(--v-reach2); text-decoration: underline; }
 
 .disclaimer { margin-top: var(--sp-4); font-size: var(--fs-xs); color: var(--ink-3); }
 .disclaimer button { background: none; border: none; color: var(--ink-2); text-decoration: underline; padding: 0; font-size: var(--fs-xs); }

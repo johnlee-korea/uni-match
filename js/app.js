@@ -1,6 +1,6 @@
 // 진입점 — 상태관리·이벤트 배선. 입력 화면 ↔ 결과 화면.
 import { loadAll } from './loader.js';
-import { saveScore, loadScore } from './storage.js';
+import { saveScore, loadScore, clearScore } from './storage.js';
 import { byTab, applyFilters, sortRecords, facets } from './filter.js';
 import { renderCard, renderSummary } from './render.js';
 import { VERDICT_HELP, VERDICTS, VERDICT_ORDER } from './verdict.js';
@@ -79,6 +79,10 @@ function renderInput() {
 
   const isJ = state.tab === 'jungsi';
 
+  // 초기화 버튼은 입력된 값이 하나라도 있을 때만 노출
+  const hasInput = state.susi != null || state.jungsi != null || state.eng != null
+    || state.field != null || Object.values(state.jungsiSub).some(v => v != null);
+
   // 정시: 과목별 백분위 입력 그리드 + 평균 표시 / 수시: 내신 등급 단일 입력
   const scoreGroup = isJ ? `
     <div class="field-group">
@@ -128,6 +132,7 @@ function renderInput() {
 
     <button class="btn-primary" id="go">결과 보기</button>
     <button class="btn-ghost" id="browse" style="width:100%;margin-top:8px;border-radius:12px;">성적 없이 입결만 둘러보기</button>
+    ${hasInput ? `<button class="btn-reset" id="reset-input" type="button">↺ 입력값 초기화</button>` : ''}
 
     <div class="disclaimer">
       2026 입시결과 기반 참고 자료이며 합격을 보장하지 않습니다.
@@ -299,6 +304,7 @@ document.addEventListener('click', e => {
   if (chip)   { selectField(chip.dataset.field); return; }
   if (t.id === 'go')     { commitScore(); renderResults(); return; }
   if (t.id === 'browse') { commitScore(); renderResults(); return; }
+  if (t.id === 'reset-input') { resetInput(); return; }
   if (t.id === 'more-disc') { showFullDisclaimer(); return; }
   if (t.id === 'edit-score') { renderInput(); return; }
   if (t.id === 'open-filter') { toggleSheet(true); return; }
@@ -325,6 +331,17 @@ function selectField(fl) {
   // 계열 칩은 필터에도 반영
   state.filters.fields.clear();
   if (state.field) state.filters.fields.add(state.field);
+  renderInput();
+}
+// 입력값 전체 초기화 — 성적·과목별 백분위·영어·계열 + 저장값·필터를 모두 비우고 입력화면 재렌더
+function resetInput() {
+  state.susi = null;
+  state.jungsi = null;
+  state.jungsiSub = { kor: null, math: null, tam1: null, tam2: null };
+  state.eng = null;
+  state.field = null;
+  state.filters = { unis: new Set(), screeningTypes: new Set(), guns: new Set(), admTypes: new Set(), fields: new Set(), verdicts: new Set(), query: '' };
+  clearScore();
   renderInput();
 }
 function commitScore() {
