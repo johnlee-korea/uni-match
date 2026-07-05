@@ -232,6 +232,17 @@ button { font-family: inherit; cursor: pointer; }
 .filter-section .chip input { accent-color: var(--brand); }
 .close-x { background: none; border: none; font-size: 20px; color: var(--ink-2); padding: var(--sp-1) var(--sp-2); }
 
+/* 판정 기준 표 */
+.crit-lead { margin: 0 0 var(--sp-3); font-size: var(--fs-sm); color: var(--ink-2); line-height: 1.6; }
+.crit-lead b { color: var(--ink); }
+.crit-wrap { overflow-x: auto; margin-bottom: var(--sp-5); }
+.crit-table { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+.crit-table th, .crit-table td { padding: var(--sp-2) var(--sp-2); text-align: left; border-bottom: 1px solid var(--line-2); white-space: nowrap; }
+.crit-table th { font-size: var(--fs-xs); color: var(--ink-3); font-weight: 600; }
+.crit-table td { color: var(--ink-2); }
+.crit-table td b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.crit-table td:first-child { white-space: nowrap; }
+
 /* 모달 시트(판정 설명) 재사용 */
 .info-list { margin: 0; padding: 0; list-style: none; }
 .info-list li { padding: var(--sp-3) 0; border-bottom: 1px solid var(--line-2); font-size: var(--fs-sm); }
@@ -277,6 +288,44 @@ button { font-family: inherit; cursor: pointer; }
 
 /* eng-select 포커스 */
 .eng-select:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
+
+/* ===== 스티키바 버튼 컴팩트(원서함/수정) ===== */
+.stickybar .basis { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stickybar .btn-ghost { padding: var(--sp-2) var(--sp-3); flex: none; }
+.basket-btn { display: inline-flex; align-items: center; gap: 4px; }
+.basket-n {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px;
+  padding: 0 5px; border-radius: var(--r-pill); background: var(--brand); color: #fff;
+  font-size: 11px; font-weight: 800; font-variant-numeric: tabular-nums;
+}
+
+/* ===== 원서함 시트 ===== */
+.basket-note { margin: 0 0 var(--sp-4); font-size: var(--fs-sm); color: var(--ink-2); line-height: 1.6; }
+.basket-note b { color: var(--ink); }
+.basket-group { margin-bottom: var(--sp-5); }
+.basket-group > h4 { display: flex; align-items: center; gap: var(--sp-2); margin: 0 0 var(--sp-3); font-size: var(--fs-sm); color: var(--ink); }
+.bg-n { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: var(--r-pill); background: var(--hover); color: var(--ink-2); font-size: 12px; font-weight: 700; }
+.bg-warn { font-size: var(--fs-xs); font-weight: 700; color: var(--v-reach1); background: var(--v-reach1-bg); padding: 2px 8px; border-radius: var(--r-pill); }
+.basket-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-2); }
+.basket-item { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-2); background: var(--surface); }
+.bi-main { flex: 1; min-width: 0; }
+.bi-dept { font-size: var(--fs-md); font-weight: 700; color: var(--ink); }
+.bi-sub { font-size: var(--fs-xs); color: var(--ink-3); margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bi-remove { flex: none; width: 30px; height: 30px; border-radius: 50%; border: none; background: var(--hover); color: var(--ink-3); font-size: 14px; transition: background .16s var(--ease), color .16s var(--ease); }
+.bi-remove:hover { background: var(--v-reach2-bg); color: var(--v-reach2); }
+.basket-empty { text-align: center; padding: var(--sp-8) var(--sp-4); color: var(--ink-2); }
+.basket-empty .muted { color: var(--ink-3); font-size: var(--fs-sm); margin-top: var(--sp-2); }
+.basket-empty b { color: #F5A623; }
+
+/* ===== 토스트 ===== */
+.toast {
+  position: fixed; left: 50%; bottom: 76px; transform: translateX(-50%) translateY(8px);
+  z-index: 70; background: var(--ink); color: var(--surface);
+  padding: 10px 18px; border-radius: var(--r-pill); font-size: var(--fs-sm); font-weight: 600;
+  box-shadow: var(--shadow-2); opacity: 0; pointer-events: none;
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 /* PC 2열 + 히어로 여백 */
 @media (min-width: 720px) {

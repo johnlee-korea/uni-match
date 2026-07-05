@@ -1,12 +1,14 @@
 // 진입점 — 상태관리·이벤트 배선. 입력 화면 ↔ 결과 화면.
 import { loadAll } from './loader.js';
-import { saveScore, loadScore, clearScore } from './storage.js';
+import { saveScore, loadScore, clearScore, loadFavorites, saveFavorites } from './storage.js';
 import { byTab, applyFilters, sortRecords, facets } from './filter.js';
-import { renderCard, renderSummary } from './render.js';
-import { VERDICT_HELP, VERDICTS, VERDICT_ORDER } from './verdict.js';
+import { renderCard, renderSummary, recordKey } from './render.js';
+import { verdictOf } from './verdict.js';
+import { VERDICT_HELP, VERDICTS, VERDICT_ORDER, THRESHOLDS } from './verdict.js';
 
 const $ = sel => document.querySelector(sel);
 const app = $('#app');
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 const state = {
   data: null,
@@ -18,7 +20,9 @@ const state = {
   field: null,     // 선택 계열(선택사항)
   submitted: false,
   sort: 'verdict',
-  filters: { unis: new Set(), screeningTypes: new Set(), guns: new Set(), admTypes: new Set(), fields: new Set(), verdicts: new Set(), query: '' }
+  filters: { unis: new Set(), screeningTypes: new Set(), guns: new Set(), admTypes: new Set(), fields: new Set(), verdicts: new Set(), query: '' },
+  favorites: new Set(),  // 관심 학과(레코드 키 집합)
+  recMap: new Map()      // 키→레코드(원서함에서 탭 무관하게 조회)
 };
 
 // 정시 입력 과목 정의(단순 평균으로 판정. 추후 대학별 반영비율 반영 여지)
@@ -56,6 +60,10 @@ async function init() {
     app.innerHTML = `<div class="error">데이터를 불러오지 못했어요. 잠시 후 다시 시도해 주세요.<br><small>${e.message}</small></div>`;
     return;
   }
+  // 키→레코드 맵(원서함 조회용) + 저장된 관심 학과 복원(현재 데이터에 존재하는 것만)
+  state.recMap = new Map(state.data.records.map(r => [recordKey(r), r]));
+  state.favorites = new Set(loadFavorites().filter(k => state.recMap.has(k)));
+
   const saved = loadScore();
   if (saved) {
     state.tab = saved.tab || 'susi'; state.susi = saved.susi; state.jungsi = saved.jungsi; state.field = saved.field;
@@ -173,15 +181,17 @@ function renderResults() {
     ? `<div class="viewmode-note">성적을 입력하면 지원 판정이 표시됩니다. 지금은 작년 컷만 보여주는 <b>열람 모드</b>예요.</div>` : '';
 
   const cards = sorted.length
-    ? sorted.map((r, i) => renderCard(r, score, i, eng)).join('')
+    ? sorted.map((r, i) => renderCard(r, score, i, eng, state.favorites)).join('')
     : `<div class="empty"><h3>조건에 맞는 학과가 없어요</h3><p>필터를 풀어보세요.</p><button class="btn-ghost" id="reset-filters">필터 초기화</button></div>`;
 
+  const favN = state.favorites.size;
   app.innerHTML = `
   <div class="stickybar">
     <div class="wrap">
       <span class="basis"><span class="k">${state.tab === 'jungsi' ? '정시' : '수시'}</span> ${scoreLabel}</span>
       <span class="spacer"></span>
-      <button class="btn-ghost" id="edit-score">성적 수정</button>
+      <button class="btn-ghost basket-btn" id="open-basket">🔖 원서함${favN ? ` <b class="basket-n">${favN}</b>` : ''}</button>
+      <button class="btn-ghost" id="edit-score">수정</button>
     </div>
   </div>
   <div class="wrap">
@@ -195,6 +205,8 @@ function renderResults() {
         <option value="ratio" ${state.sort==='ratio'?'selected':''}>경쟁률순</option>
       </select>
       <button class="btn-ghost filter-btn" id="open-filter">필터${activeFilterCount?` ${activeFilterCount}`:''}${activeFilterCount?'<span class="dot"></span>':''}</button>
+      <button class="btn-ghost" id="open-help" title="판정 기준 안내">판정 기준</button>
+      <button class="btn-ghost" id="share-btn" title="친구에게 공유">↗ 공유</button>
     </div>
     ${viewNote}
     <div class="results" id="results">${cards}</div>
@@ -249,17 +261,190 @@ function openHelp() {
     const v = VERDICTS[k];
     return `<li><span class="badge ${v.color}">${k}</span><br>${VERDICT_HELP[k]}</li>`;
   }).join('');
+
+  // 실제 임계값(verdict.js THRESHOLDS)을 그대로 문구화 — 코드와 항상 일치
+  const s = THRESHOLDS.susi, j = THRESHOLDS.jungsi;
+  const critRow = (badge, susiTxt, jungTxt) =>
+    `<tr><td><span class="badge ${VERDICTS[badge].color}">${badge}</span></td><td>${susiTxt}</td><td>${jungTxt}</td></tr>`;
+  const criteria = `
+    <p class="crit-lead">작년 <b>70% 합격 컷</b>과 내 성적의 차이로 판정해요. (수시=내신 등급은 낮을수록, 정시=백분위는 높을수록 우수)</p>
+    <div class="crit-wrap">
+    <table class="crit-table">
+      <thead><tr><th>판정</th><th>수시 (내신 등급)</th><th>정시 (백분위)</th></tr></thead>
+      <tbody>
+        ${critRow('초상향', `컷보다 <b>${s.reach2}등급+</b> 부족`, `컷이 <b>${j.reach2}+</b> 높음`)}
+        ${critRow('상향',   `<b>${s.reach1}~${s.reach2}등급</b> 부족`, `<b>${j.reach1}~${j.reach2}</b> 높음`)}
+        ${critRow('적정',   `컷과 <b>±${s.fit}등급</b> 이내`, `컷과 <b>±${j.fit}</b> 이내`)}
+        ${critRow('안정',   `컷보다 <b>${s.fit}등급+</b> 여유`, `컷보다 <b>${j.fit}+</b> 여유`)}
+      </tbody>
+    </table>
+    </div>`;
+
   const el = document.createElement('div');
   el.innerHTML = `
   <div class="sheet-backdrop open" id="help-bd"></div>
   <div class="sheet open" role="dialog" aria-label="판정 기준">
     <div class="sheet-head"><h3>판정 기준</h3><button class="close-x" id="close-help" aria-label="닫기">✕</button></div>
-    <div class="sheet-body"><ul class="info-list">${items}</ul></div>
+    <div class="sheet-body">${criteria}<ul class="info-list">${items}</ul></div>
   </div>`;
   document.body.appendChild(el);
   const close = () => el.remove();
   el.querySelector('#help-bd').onclick = close;
   el.querySelector('#close-help').onclick = close;
+}
+
+// ── 관심 학과(찜) · 원서함 ─────────────────────────────────────
+// 레코드의 소속 탭 성적으로 판정(수시=내신, 정시=백분위+영어). 성적 미입력이면 null.
+function itemVerdict(r) {
+  const isJ = r._meta.admissionRound === '정시';
+  return verdictOf(r, r._meta, isJ ? state.jungsi : state.susi, isJ ? state.eng : null);
+}
+
+function toggleFavorite(key, btn) {
+  if (state.favorites.has(key)) state.favorites.delete(key);
+  else state.favorites.add(key);
+  saveFavorites(state.favorites);
+  const on = state.favorites.has(key);
+  if (btn) {
+    btn.classList.toggle('on', on);
+    btn.textContent = on ? '★' : '☆';
+    btn.setAttribute('aria-pressed', String(on));
+    btn.setAttribute('aria-label', on ? '관심 학과 해제' : '관심 학과 담기');
+  }
+  updateBasketCount();
+  toast(on ? '원서함에 담았어요' : '원서함에서 뺐어요');
+}
+
+function updateBasketCount() {
+  const b = $('#open-basket');
+  if (!b) return;
+  const n = state.favorites.size;
+  b.innerHTML = `🔖 원서함${n ? ` <b class="basket-n">${n}</b>` : ''}`;
+}
+
+// 원서함 제거 시 결과 목록의 별 상태도 동기화
+function syncFavStars() {
+  document.querySelectorAll('.fav-btn').forEach(btn => {
+    const on = state.favorites.has(btn.dataset.key);
+    btn.classList.toggle('on', on);
+    btn.textContent = on ? '★' : '☆';
+    btn.setAttribute('aria-pressed', String(on));
+  });
+}
+
+function basketBodyHtml() {
+  const favs = [...state.favorites].map(k => state.recMap.get(k)).filter(Boolean);
+  if (!favs.length)
+    return `<div class="basket-empty"><p>아직 담은 학과가 없어요.</p>
+      <p class="muted">결과 카드의 <b>☆</b>를 눌러 관심 학과를 담아보세요.</p></div>`;
+
+  const itemHtml = r => {
+    const v = itemVerdict(r);
+    const badge = v ? `<span class="badge ${v.color}">${esc(v.key)}</span>` : '';
+    const gunTag = r._meta.admissionRound === '정시' && r.gun ? ` · ${esc(r.gun)}군` : '';
+    return `<li class="basket-item">
+      <div class="bi-main">
+        <div class="bi-dept">${esc(r.dept)}</div>
+        <div class="bi-sub">${esc(r._uni.name)} · ${esc(r.screeningName)}${gunTag}</div>
+      </div>
+      ${badge}
+      <button class="bi-remove" data-key="${esc(recordKey(r))}" aria-label="원서함에서 빼기" title="빼기">✕</button>
+    </li>`;
+  };
+  const section = (title, arr, warn) => `<div class="basket-group">
+    <h4>${title} <span class="bg-n">${arr.length}</span>${warn ? ` <span class="bg-warn">${warn}</span>` : ''}</h4>
+    <ul class="basket-list">${arr.map(itemHtml).join('')}</ul></div>`;
+
+  const susi = favs.filter(r => r._meta.admissionRound === '수시');
+  const jung = favs.filter(r => r._meta.admissionRound === '정시');
+  let html = '';
+  if (susi.length) html += section('수시', susi, susi.length > 6 ? '6곳 초과' : '');
+  for (const g of ['가', '나', '다']) {
+    const arr = jung.filter(r => r.gun === g);
+    if (arr.length) html += section(`정시 ${g}군`, arr, arr.length > 1 ? '군당 1곳 권장' : '');
+  }
+  const jungEtc = jung.filter(r => !['가', '나', '다'].includes(r.gun));
+  if (jungEtc.length) html += section('정시', jungEtc, '');
+  return html;
+}
+
+function openBasket() {
+  const el = document.createElement('div');
+  el.innerHTML = `
+  <div class="sheet-backdrop open" data-close="1"></div>
+  <div class="sheet open" role="dialog" aria-label="원서함">
+    <div class="sheet-head"><h3>🔖 내 원서함</h3><button class="close-x" data-close="1" aria-label="닫기">✕</button></div>
+    <div class="sheet-body">
+      <p class="basket-note">담은 학과로 원서 전략을 세워보세요. 수시는 최대 <b>6곳</b>, 정시는 <b>가·나·다 군당 1곳</b>씩 지원합니다.</p>
+      <div class="basket-body">${basketBodyHtml()}</div>
+    </div>
+  </div>`;
+  document.body.appendChild(el);
+  const close = () => el.remove();
+  el.addEventListener('click', e => {
+    if (e.target.dataset && e.target.dataset.close) { close(); return; }
+    const rm = e.target.closest('.bi-remove');
+    if (rm) {
+      state.favorites.delete(rm.dataset.key);
+      saveFavorites(state.favorites);
+      const body = el.querySelector('.basket-body');
+      if (body) body.innerHTML = basketBodyHtml();
+      syncFavStars();
+      updateBasketCount();
+    }
+  });
+}
+
+// ── 공유(Web Share API + 클립보드 폴백) ─────────────────────────────
+const SITE_URL = 'https://johnlee-korea.github.io/uni-match/';
+function shareResult() {
+  const score = curScore();
+  let text = '어대가 — 내 성적으로 어느 대학 가는지 30초 만에 확인해보세요!';
+  if (score != null && state.submitted) {
+    const base = byTab(state.data.records, state.tab);
+    const eng = curEng();
+    let fit = 0, safe = 0;
+    for (const r of base) {
+      const v = verdictOf(r, r._meta, score, eng);
+      if (v && v.key === '적정') fit++;
+      else if (v && v.key === '안정') safe++;
+    }
+    text = `어대가에서 내 성적으로 확인한 결과 — 적정 ${fit}곳·안정 ${safe}곳! 나도 확인해보기 👇`;
+  }
+  const data = { title: '어.대.가', text, url: SITE_URL };
+  if (navigator.share) {
+    navigator.share(data).catch(() => {}); // 모바일 네이티브 공유(카톡 등). 사용자 취소는 무시
+    return;
+  }
+  // 데스크톱 폴백: 클립보드 → 실패 시 execCommand → 그래도 안 되면 주소 안내
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(SITE_URL).then(() => toast('링크를 복사했어요')).catch(legacyCopy);
+  } else {
+    legacyCopy();
+  }
+}
+
+function legacyCopy() {
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = SITE_URL; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    const ok = document.execCommand('copy');
+    ta.remove();
+    toast(ok ? '링크를 복사했어요' : `주소: ${SITE_URL}`);
+  } catch (e) {
+    toast(`주소: ${SITE_URL}`);
+  }
+}
+
+let toastTimer = null;
+function toast(msg) {
+  let t = $('#toast');
+  if (!t) { t = document.createElement('div'); t.id = 'toast'; t.className = 'toast'; document.body.appendChild(t); }
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 1600);
 }
 
 // ── 이벤트 위임 ─────────────────────────────────────
@@ -295,16 +480,22 @@ document.addEventListener('change', e => {
 
 document.addEventListener('click', e => {
   const t = e.target;
+  const favBtn = t.closest('.fav-btn');
+  const basketBtn = t.closest('#open-basket');
   const tabBtn = t.closest('[data-tab]');
   const chip = t.closest('[data-field]');
   const sumCell = t.closest('.summary-cell');
   const head = t.closest('.card-head');
 
+  if (favBtn)    { e.stopPropagation(); toggleFavorite(favBtn.dataset.key, favBtn); return; }
+  if (basketBtn) { openBasket(); return; }
   if (tabBtn) { switchTab(tabBtn.dataset.tab); return; }
   if (chip)   { selectField(chip.dataset.field); return; }
   if (t.id === 'go')     { commitScore(); renderResults(); return; }
   if (t.id === 'browse') { commitScore(); renderResults(); return; }
   if (t.id === 'reset-input') { resetInput(); return; }
+  if (t.id === 'open-help') { openHelp(); return; }
+  if (t.id === 'share-btn') { shareResult(); return; }
   if (t.id === 'more-disc') { showFullDisclaimer(); return; }
   if (t.id === 'edit-score') { renderInput(); return; }
   if (t.id === 'open-filter') { toggleSheet(true); return; }
@@ -361,7 +552,7 @@ function updateResultsOnly() {
   const box = $('#results');
   if (!box) return;
   box.innerHTML = sorted.length
-    ? sorted.map((r, i) => renderCard(r, score, i, eng)).join('')
+    ? sorted.map((r, i) => renderCard(r, score, i, eng, state.favorites)).join('')
     : `<div class="empty"><h3>조건에 맞는 학과가 없어요</h3><p>필터를 풀어보세요.</p><button class="btn-ghost" id="reset-filters">필터 초기화</button></div>`;
 }
 function toggleSheet(open) {

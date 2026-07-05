@@ -34,3 +34,22 @@ export function saveScore(state) {
 export function clearScore() {
   try { localStorage.removeItem(KEY); } catch (e) { /* noop */ }
 }
+
+// ── 관심 학과(찜) 저장 — 레코드 키 배열만 저장(개인정보 아님) ──
+const FAV_KEY = 'uni-match:favorites';
+
+export function loadFavorites() {
+  try {
+    const raw = localStorage.getItem(FAV_KEY);
+    const v = raw ? JSON.parse(raw) : [];
+    return Array.isArray(v) ? v.filter(x => typeof x === 'string') : [];
+  } catch (e) {
+    console.warn('[storage] 관심학과 복원 실패:', e);
+    return [];
+  }
+}
+
+export function saveFavorites(keys) {
+  try { localStorage.setItem(FAV_KEY, JSON.stringify([...keys])); }
+  catch (e) { console.warn('[storage] 관심학과 저장 실패:', e); }
+}

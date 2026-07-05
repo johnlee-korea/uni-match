@@ -4,6 +4,11 @@ import { verdictOf, verdictReason, jungsiEffective, VERDICT_ORDER, VERDICTS } fr
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const num = v => (v == null ? '—' : String(v));
 
+// 레코드 고유 키(관심 학과 저장·복원용). 데이터가 바뀌지 않는 한 안정적.
+export function recordKey(r) {
+  return [r._meta.admissionRound, r._uni.code, r.dept, r.screeningName, r.gun || ''].join('|');
+}
+
 // ── 스케일바 위치 계산 ─────────────────────────────────────
 // 수시=낮을수록 우수(betterIsLow), 정시=높을수록 우수. 항상 왼쪽=유리하게 정규화.
 function scaleGeometry(c50, c70, score, betterIsLow) {
@@ -70,8 +75,10 @@ function engLine(record, meta, engScore) {
 }
 
 // ── 카드 ─────────────────────────────────────
-export function renderCard(record, score, idx, engScore = null) {
+export function renderCard(record, score, idx, engScore = null, favSet = null) {
   const meta = record._meta, uni = record._uni;
+  const key = recordKey(record);
+  const isFav = favSet ? favSet.has(key) : false;
   const verdict = verdictOf(record, meta, score, engScore);
   const badge = verdict || VERDICTS.정보없음; // 미입력 열람 모드에선 배지 숨김 처리(아래)
   const showBadge = verdict != null; // 성적 미입력이면 배지 없음
@@ -111,6 +118,8 @@ export function renderCard(record, score, idx, engScore = null) {
 
   return `
   <article class="card" data-idx="${idx}">
+    <button class="fav-btn ${isFav ? 'on' : ''}" data-key="${esc(key)}" aria-pressed="${isFav}"
+            aria-label="${isFav ? '관심 학과 해제' : '관심 학과 담기'}" title="관심 학과 담기">${isFav ? '★' : '☆'}</button>
     <button class="card-head" aria-expanded="false">
       <div class="card-row1">
         <span class="card-uni">${esc(uni.name)}</span>

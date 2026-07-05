@@ -1,10 +1,22 @@
 /* 결과 카드 + 시그니처 컷 스케일바 + 판정 배지 — 색=정보 원칙의 유일한 색 사용처 */
 
 .card {
+  position: relative;
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-3);
   box-shadow: var(--shadow-1); overflow: hidden;
   transition: transform .16s var(--ease), box-shadow .18s var(--ease), border-color .16s var(--ease);
 }
+/* 관심 학과(찜) 별 버튼 — card-head 위에 겹쳐 배치(중첩 button 회피) */
+.fav-btn {
+  position: absolute; top: 8px; right: 8px; z-index: 2;
+  width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: none; background: transparent; color: var(--ink-3);
+  font-size: 21px; line-height: 1;
+  transition: transform .14s var(--ease), color .16s var(--ease), background .16s var(--ease);
+}
+.fav-btn:hover { color: #F5A623; background: var(--hover); transform: scale(1.1); }
+.fav-btn.on { color: #F5A623; }
 @media (hover: hover) {
   .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); border-color: var(--line); }
 }
@@ -21,7 +33,7 @@
   transform: translateY(-50%) rotate(45deg); transition: transform .22s var(--ease);
 }
 .card.open .card-head::after { transform: translateY(-50%) rotate(-135deg); }
-.card-row1 { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-2); }
+.card-row1 { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-2); padding-right: 34px; }
 .card-uni { font-size: var(--fs-sm); color: var(--ink-2); font-weight: 600; }
 .campus-badge {
   font-size: 11px; color: var(--ink-3); border: 1px solid var(--line); border-radius: var(--r-pill);
