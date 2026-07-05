@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "university": "협성대학교",
+    "universityCode": "HYUPSUNG",
+    "campus": "",
+    "region": "",
+    "year": 2026,
+    "admissionRound": "수시",
+    "screeningType": "종합",
+    "cutType": "70",
+    "referenceOnly": true,
+    "source": "대입정보포털 어디가",
+    "note": "학생부종합=서류·면접 중심 정성평가. 컷(환산등급, 70% 기준)과 환산점수는 참고용이며 판정 배지 대신 '참고' 표시. 환산점수 1000점 만점대 제공.",
+    "omittedNoData": { "count": 1, "byScreening": { "학생부종합(협성창의인재Ⅱ면접)": 1 }, "note": "미제출(모집인원 없음: 글로벌통상·문화학과) 모집단위는 결과에서 제외, 건수만 표기" }
+  },
+  "records": [
+    { "screeningName": "학생부종합(협성창의인재Ⅰ서류)", "dept": "자율전공학부", "field": "기타", "quotaFinal": 50, "ratio": 6, "waitlistFilled": 109, "score50": 936.6, "score70": 934.4, "cut50": 4.08, "cut70": 4.14, "remark": null },
+
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "문예창작학과", "field": "인문", "quotaFinal": 10, "ratio": 7.4, "waitlistFilled": 21, "score50": 937.7, "score70": 935.5, "cut50": 4.05, "cut70": 4.11, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "중국어문화학과", "field": "인문", "quotaFinal": 6, "ratio": 3.3, "waitlistFilled": 12, "score50": 917.7, "score70": 913.3, "cut50": 4.55, "cut70": 4.66, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "호텔관광경영학과", "field": "인문", "quotaFinal": 6, "ratio": 5.7, "waitlistFilled": 9, "score50": 938.8, "score70": 937.7, "cut50": 4.03, "cut70": 4.05, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "유통경영학과", "field": "인문", "quotaFinal": 6, "ratio": 5.3, "waitlistFilled": 12, "score50": 914.4, "score70": 912.2, "cut50": 4.64, "cut70": 4.69, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "경영학과", "field": "인문", "quotaFinal": 8, "ratio": 6.5, "waitlistFilled": 14, "score50": 938.8, "score70": 938.8, "cut50": 4.03, "cut70": 4.03, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "도시공학과", "field": "공학", "quotaFinal": 6, "ratio": 4, "waitlistFilled": 9, "score50": 923.3, "score70": 913.3, "cut50": 4.41, "cut70": 4.66, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "건축공학과", "field": "공학", "quotaFinal": 8, "ratio": 3.5, "waitlistFilled": 10, "score50": 926.6, "score70": 922.2, "cut50": 4.33, "cut70": 4.44, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "아동보육학과", "field": "인문", "quotaFinal": 8, "ratio": 3.8, "waitlistFilled": 8, "score50": 913.3, "score70": 913.3, "cut50": 4.66, "cut70": 4.66, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "도시행정학과", "field": "인문", "quotaFinal": 6, "ratio": 7.3, "waitlistFilled": 15, "score50": 924.4, "score70": 917.7, "cut50": 4.39, "cut70": 4.55, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "사회복지학과", "field": "인문", "quotaFinal": 10, "ratio": 5.3, "waitlistFilled": 28, "score50": 938.8, "score70": 932.2, "cut50": 4.03, "cut70": 4.19, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "세무회계학과", "field": "인문", "quotaFinal": 6, "ratio": 4.2, "waitlistFilled": 10, "score50": 932.2, "score70": 928.8, "cut50": 4.19, "cut70": 4.28, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "금융보험학과", "field": "인문", "quotaFinal": 6, "ratio": 4.3, "waitlistFilled": 11, "score50": 913.3, "score70": 913.3, "cut50": 4.66, "cut70": 4.66, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "의생명화학과", "field": "자연", "quotaFinal": 6, "ratio": 6.3, "waitlistFilled": 16, "score50": 948.8, "score70": 941.1, "cut50": 3.7, "cut70": 3.96, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "소프트웨어공학과", "field": "공학", "quotaFinal": 8, "ratio": 4.6, "waitlistFilled": 15, "score50": 941.1, "score70": 938.8, "cut50": 3.96, "cut70": 4.03, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "컴퓨터공학과", "field": "공학", "quotaFinal": 8, "ratio": 5, "waitlistFilled": 17, "score50": 930, "score70": 930, "cut50": 4.25, "cut70": 4.25, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "보건관리학과", "field": "보건의료", "quotaFinal": 6, "ratio": 4.2, "waitlistFilled": 10, "score50": 917.7, "score70": 916.6, "cut50": 4.55, "cut70": 4.58, "remark": null },
+    { "screeningName": "학생부종합(협성창의인재Ⅱ면접)", "dept": "미디어영상광고학과", "field": "인문", "quotaFinal": 12, "ratio": 11, "waitlistFilled": 28, "score50": 948.8, "score70": 946.6, "cut50": 3.7, "cut70": 3.78, "remark": null }
+  ]
+}

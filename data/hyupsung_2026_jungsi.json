@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "university": "협성대학교",
+    "universityCode": "HYUPSUNG",
+    "campus": "",
+    "region": "",
+    "year": 2026,
+    "admissionRound": "정시",
+    "screeningType": "정시",
+    "cutType": "70",
+    "referenceOnly": false,
+    "source": "대입정보포털 어디가",
+    "note": "정시 판정은 평균백분위(70% 기준). pct50/pct70=평균백분위, score50/70=환산점수, eng50/eng70=영어등급, gun=모집군. 협성대는 전 학과 '가/나/다'군 분산.",
+    "omittedNoData": { "count": 40, "byScreening": { "수능(기초생활수급자, 차상위계층, 한부모가족전형)": 15, "수능(농어촌학생전형)": 13, "수능(특성화고교전형)": 12 }, "note": "미제출(수시 이월 인원 없음/0명 모집) 모집단위는 결과에서 제외, 건수만 표기. 일반전형은 제외 건 없음." }
+  },
+  "records": [
+    { "screeningName": "수능(일반전형)", "gun": "가", "dept": "의생명화학과", "field": "자연", "quotaFinal": 7, "ratio": 9.7, "waitlistFilled": 16, "score50": 815.5, "score70": 811.5, "pct50": 76, "pct70": 76, "remark": null, "eng50": 3, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "가", "dept": "건축공학과", "field": "공학", "quotaFinal": 5, "ratio": 7.8, "waitlistFilled": 13, "score50": 825.5, "score70": 799, "pct50": 77, "pct70": 77, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "가", "dept": "소프트웨어공학과", "field": "공학", "quotaFinal": 4, "ratio": 7, "waitlistFilled": 8, "score50": 808.5, "score70": 808.5, "pct50": 76, "pct70": 76, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "가", "dept": "컴퓨터공학과", "field": "공학", "quotaFinal": 6, "ratio": 9.3, "waitlistFilled": 11, "score50": 792.5, "score70": 790.5, "pct50": 76, "pct70": 76, "remark": null, "eng50": 5, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "가", "dept": "도시공학과", "field": "공학", "quotaFinal": 6, "ratio": 14.5, "waitlistFilled": 9, "score50": 775, "score70": 774, "pct50": 75, "pct70": 75, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "가", "dept": "보건관리학과", "field": "보건의료", "quotaFinal": 6, "ratio": 9.7, "waitlistFilled": 16, "score50": 787.5, "score70": 780, "pct50": 74, "pct70": 74, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "나", "dept": "신학과", "field": "기타", "quotaFinal": 22, "ratio": 3.7, "waitlistFilled": 27, "score50": 703.5, "score70": 689.5, "pct50": 64, "pct70": 63, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "나", "dept": "자율전공학부", "field": "기타", "quotaFinal": 53, "ratio": 5.8, "waitlistFilled": 103, "score50": 786.5, "score70": 783.5, "pct50": 74, "pct70": 74, "remark": null, "eng50": 4, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "유통경영학과", "field": "인문", "quotaFinal": 4, "ratio": 15.5, "waitlistFilled": 13, "score50": 794, "score70": 789, "pct50": 75, "pct70": 75, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "호텔관광경영학과", "field": "인문", "quotaFinal": 4, "ratio": 12.8, "waitlistFilled": 9, "score50": 819.5, "score70": 783, "pct50": 78, "pct70": 77, "remark": null, "eng50": 5, "eng70": 5 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "중국어문화학과", "field": "인문", "quotaFinal": 5, "ratio": 15.8, "waitlistFilled": 14, "score50": 790.5, "score70": 775, "pct50": 72, "pct70": 72, "remark": null, "eng50": 5, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "문예창작학과", "field": "인문", "quotaFinal": 5, "ratio": 7.6, "waitlistFilled": 12, "score50": 815.5, "score70": 803, "pct50": 77, "pct70": 76, "remark": null, "eng50": 4, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "미디어영상광고학과", "field": "인문", "quotaFinal": 8, "ratio": 8.4, "waitlistFilled": 22, "score50": 804.5, "score70": 801, "pct50": 77, "pct70": 76, "remark": null, "eng50": 4, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "글로벌통상·문화학과", "field": "인문", "quotaFinal": 5, "ratio": 7.2, "waitlistFilled": 13, "score50": 791.5, "score70": 790.5, "pct50": 74, "pct70": 73, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "경영학과", "field": "인문", "quotaFinal": 7, "ratio": 10.7, "waitlistFilled": 15, "score50": 820.5, "score70": 819, "pct50": 80, "pct70": 77, "remark": null, "eng50": 4, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "금융보험학과", "field": "인문", "quotaFinal": 5, "ratio": 33.2, "waitlistFilled": 10, "score50": 796.5, "score70": 796.5, "pct50": 76, "pct70": 76, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "세무회계학과", "field": "인문", "quotaFinal": 4, "ratio": 11, "waitlistFilled": 6, "score50": 808.5, "score70": 808.5, "pct50": 75, "pct70": 75, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "사회복지학과", "field": "인문", "quotaFinal": 6, "ratio": 10.3, "waitlistFilled": 13, "score50": 783.5, "score70": 783.5, "pct50": 75, "pct70": 75, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "도시행정학과", "field": "인문", "quotaFinal": 6, "ratio": 8.7, "waitlistFilled": 9, "score50": 788, "score70": 784.5, "pct50": 71, "pct70": 71, "remark": null, "eng50": 4, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "아동보육학과", "field": "인문", "quotaFinal": 3, "ratio": 8.3, "waitlistFilled": 4, "score50": 773, "score70": 771, "pct50": 74, "pct70": 73, "remark": null, "eng50": 4, "eng70": 4 },
+
+    { "screeningName": "수능(기초생활수급자, 차상위계층, 한부모가족전형)", "gun": "가", "dept": "소프트웨어공학과", "field": "공학", "quotaFinal": 1, "ratio": 7, "waitlistFilled": 3, "score50": 737, "score70": 737, "pct50": 65, "pct70": 65, "remark": null, "eng50": 3, "eng70": 3 },
+
+    { "screeningName": "수능(농어촌학생전형)", "gun": "다", "dept": "미디어영상광고학과", "field": "인문", "quotaFinal": 1, "ratio": 4, "waitlistFilled": 1, "score50": 766.5, "score70": 766.5, "pct50": 67, "pct70": 67, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(농어촌학생전형)", "gun": "다", "dept": "경영학과", "field": "인문", "quotaFinal": 1, "ratio": 6, "waitlistFilled": 1, "score50": 605.5, "score70": 605.5, "pct50": 52, "pct70": 52, "remark": null, "eng50": 5, "eng70": 5 },
+    { "screeningName": "수능(농어촌학생전형)", "gun": "다", "dept": "세무회계학과", "field": "인문", "quotaFinal": 1, "ratio": 6, "waitlistFilled": 1, "score50": 738.5, "score70": 738.5, "pct50": 67, "pct70": 67, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능(농어촌학생전형)", "gun": "다", "dept": "도시행정학과", "field": "인문", "quotaFinal": 1, "ratio": 3, "waitlistFilled": 1, "score50": 606.5, "score70": 606.5, "pct50": 40, "pct70": 40, "remark": null, "eng50": 7, "eng70": 7 },
+
+    { "screeningName": "수능(특성화고교전형)", "gun": "다", "dept": "유통경영학과", "field": "인문", "quotaFinal": 1, "ratio": 2, "waitlistFilled": 1, "score50": 730.5, "score70": 730.5, "pct50": 64, "pct70": 64, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능(특성화고교전형)", "gun": "다", "dept": "금융보험학과", "field": "인문", "quotaFinal": 1, "ratio": 3, "waitlistFilled": 1, "score50": 669, "score70": 669, "pct50": 62, "pct70": 62, "remark": null, "eng50": 5, "eng70": 5 }
+  ]
+}

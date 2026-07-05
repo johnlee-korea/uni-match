@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "university": "선문대학교",
+    "universityCode": "SUNMOON",
+    "campus": "",
+    "region": "",
+    "year": 2026,
+    "admissionRound": "정시",
+    "screeningType": "정시",
+    "cutType": "70",
+    "referenceOnly": false,
+    "source": "대입정보포털 어디가",
+    "note": "정시 판정은 평균백분위(70% 기준). pct50/pct70=평균백분위(한국사등급 바로 왼쪽 열), score50/70=환산점수, gun=모집군, eng50/eng70=영어등급('-'는 null). 모집단위는 계열/학과 단위로 발표.",
+    "omittedNoData": { "count": 1, "byScreening": { "수능(일반전형)": 1 }, "note": "신학과(정시 나, 모집인원·이월인원 없음) 결과에서 제외" }
+  },
+  "records": [
+    { "screeningName": "수능(일반전형)", "gun": "나", "dept": "치위생학과", "field": "보건의료", "quotaFinal": 8, "ratio": 3.0, "waitlistFilled": 13, "score50": 709.29, "score70": 666, "pct50": 64, "pct70": 60, "remark": null, "eng50": 3, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "나", "dept": "간호학과", "field": "보건의료", "quotaFinal": 21, "ratio": 4.56, "waitlistFilled": 12, "score50": 789.21, "score70": 785.88, "pct50": 76, "pct70": 81, "remark": null, "eng50": 3, "eng70": 5 },
+    { "screeningName": "수능(일반전형)", "gun": "나", "dept": "물리치료학과", "field": "보건의료", "quotaFinal": 9, "ratio": 6.29, "waitlistFilled": 7, "score50": 779.22, "score70": 769.23, "pct50": 77, "pct70": 76, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "나", "dept": "생명과학계열", "field": "자연", "quotaFinal": 68, "ratio": 2.56, "waitlistFilled": 46, "score50": 790, "score70": 755, "pct50": 62, "pct70": 62, "remark": null, "eng50": 4, "eng70": 5 },
+    { "screeningName": "수능(일반전형)", "gun": "나", "dept": "인문사회계열", "field": "인문", "quotaFinal": 43, "ratio": 4.36, "waitlistFilled": 51, "score50": 790, "score70": 790, "pct50": 64, "pct70": 74, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "나", "dept": "건축산업안전전자반도체계열", "field": "공학", "quotaFinal": 119, "ratio": 1.18, "waitlistFilled": 65, "score50": 790, "score70": 755, "pct50": 70, "pct70": 48, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "응급구조학과", "field": "보건의료", "quotaFinal": 10, "ratio": 4.67, "waitlistFilled": 12, "score50": 732.6, "score70": 712.62, "pct50": 70, "pct70": 70, "remark": null, "eng50": 4, "eng70": 5 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "영화영상학과", "field": "예체능", "quotaFinal": 17, "ratio": 1.72, "waitlistFilled": 13, "score50": 685, "score70": 685, "pct50": 31, "pct70": 34, "remark": null, "eng50": 5, "eng70": null },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "자유전공학부", "field": "기타", "quotaFinal": 11, "ratio": 10.75, "waitlistFilled": 14, "score50": 825, "score70": 790, "pct50": 72, "pct70": 76, "remark": null, "eng50": null, "eng70": 5 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "기계모빌리티컴퓨터소프트웨어계열", "field": "공학", "quotaFinal": 142, "ratio": 2.5, "waitlistFilled": 91, "score50": 755, "score70": 755, "pct50": 50, "pct70": 47, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "글로벌언어문화경상계열", "field": "인문", "quotaFinal": 113, "ratio": 3.31, "waitlistFilled": 93, "score50": 790, "score70": 790, "pct50": 64, "pct70": 60, "remark": null, "eng50": 4, "eng70": 4 }
+  ]
+}

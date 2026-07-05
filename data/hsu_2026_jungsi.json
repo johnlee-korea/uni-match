@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "university": "한신대학교",
+    "universityCode": "HSU",
+    "campus": "",
+    "region": "",
+    "year": 2026,
+    "admissionRound": "정시",
+    "screeningType": "정시",
+    "cutType": "70",
+    "referenceOnly": false,
+    "source": "대입정보포털 어디가",
+    "note": "정시 판정은 평균백분위(70% 기준). pct50/pct70=평균백분위(한국사 등급 바로 왼쪽 열), score50/70=환산점수, eng50/eng70=영어등급(각 블록 맨 오른쪽 열). gun=모집군. 특수체육학은 환산점수 척도가 다름(약 600점 만점).",
+    "omittedNoData": { "count": 17, "byScreening": { "수능(기회균형선발)": 7, "수능(특성화고교졸업자)": 4, "수능(농어촌학생)": 6 }, "note": "미제출(수시 이월인원 선발 전형, 전년도 결과 미공개) 모집단위는 결과에서 제외, 건수만 표기." }
+  },
+  "records": [
+    { "screeningName": "수능(일반학생)", "gun": "가", "dept": "문화콘텐츠계열", "field": "인문", "quotaFinal": 14, "ratio": 7.79, "waitlistFilled": 17, "score50": 857, "score70": 840, "pct50": 79, "pct70": 70, "remark": null, "eng50": 4, "eng70": 2 },
+    { "screeningName": "수능(일반학생)", "gun": "가", "dept": "자유전공학부", "field": "기타", "quotaFinal": 20, "ratio": 8.95, "waitlistFilled": 12, "score50": 875, "score70": 873, "pct50": 85, "pct70": 79, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능(일반학생)", "gun": "가", "dept": "AI시스템반도체학", "field": "공학", "quotaFinal": 6, "ratio": 5.17, "waitlistFilled": 5, "score50": 882, "score70": 875, "pct50": 79, "pct70": 81, "remark": null, "eng50": 2, "eng70": 3 },
+    { "screeningName": "수능(일반학생)", "gun": "가", "dept": "첨단융합계열", "field": "공학", "quotaFinal": 7, "ratio": 8.43, "waitlistFilled": 8, "score50": 856, "score70": 856, "pct50": 73, "pct70": 76, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(일반학생)", "gun": "가", "dept": "신학·인문융합계열", "field": "인문", "quotaFinal": 21, "ratio": 5.67, "waitlistFilled": 16, "score50": 840, "score70": 836, "pct50": 75, "pct70": 70, "remark": null, "eng50": 3, "eng70": 2 },
+    { "screeningName": "수능(일반학생)", "gun": "가", "dept": "휴먼서비스계열", "field": "인문", "quotaFinal": 12, "ratio": 8.83, "waitlistFilled": 9, "score50": 844, "score70": 843, "pct50": 75, "pct70": 75, "remark": null, "eng50": 4, "eng70": 3 },
+    { "screeningName": "수능(일반학생)", "gun": "다", "dept": "AI·SW계열", "field": "공학", "quotaFinal": 26, "ratio": 6.54, "waitlistFilled": 23, "score50": 851, "score70": 849, "pct50": 77, "pct70": 76, "remark": null, "eng50": 3, "eng70": 4 },
+    { "screeningName": "수능(일반학생)", "gun": "다", "dept": "미디어계열", "field": "인문", "quotaFinal": 7, "ratio": 9.14, "waitlistFilled": 8, "score50": 882, "score70": 878, "pct50": 74, "pct70": 81, "remark": null, "eng50": 2, "eng70": 3 },
+    { "screeningName": "수능(일반학생)", "gun": "다", "dept": "경영계열", "field": "인문", "quotaFinal": 7, "ratio": 6.43, "waitlistFilled": 9, "score50": 873, "score70": 867, "pct50": 77, "pct70": 76, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(일반학생)", "gun": "다", "dept": "글로벌융합계열", "field": "인문", "quotaFinal": 19, "ratio": 11.32, "waitlistFilled": 27, "score50": 860, "score70": 857, "pct50": 78, "pct70": 82, "remark": null, "eng50": 3, "eng70": 5 },
+
+    { "screeningName": "수능(체육실기)", "gun": "가", "dept": "특수체육학", "field": "예체능", "quotaFinal": 11, "ratio": 16.18, "waitlistFilled": 16, "score50": 511.4, "score70": 489.4, "pct50": 82, "pct70": 75, "remark": null, "eng50": 4, "eng70": 6 }
+  ]
+}

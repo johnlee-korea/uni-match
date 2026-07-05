@@ -91,6 +91,59 @@
         "kongju2_2026_susi_jong.json",
         "kongju2_2026_jungsi.json"
       ]
+    },
+    {
+      "code": "HSU",
+      "name": "한신대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "hsu_2026_susi_gyo.json",
+        "hsu_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "SUNMOON",
+      "name": "선문대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "sunmoon_2026_susi_gyo.json",
+        "sunmoon_2026_susi_jong.json",
+        "sunmoon_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "SCH",
+      "name": "순천향대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "sch_2026_susi_gyo.json",
+        "sch_2026_susi_jong.json",
+        "sch_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "SWU",
+      "name": "수원대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "swu_2026_susi_gyo.json",
+        "swu_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "HYUPSUNG",
+      "name": "협성대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "hyupsung_2026_susi_gyo.json",
+        "hyupsung_2026_jungsi.json",
+        "hyupsung_2026_susi_jong.json"
+      ]
     }
   ],
   "pending": []
