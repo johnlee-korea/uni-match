@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "university": "백석대학교",
+    "universityCode": "BU",
+    "campus": "",
+    "region": "천안",
+    "year": 2026,
+    "admissionRound": "정시",
+    "screeningType": "정시",
+    "cutType": "70",
+    "referenceOnly": false,
+    "source": "대입정보포털 어디가",
+    "note": "정시 판정은 평균백분위(70% 기준). pct50/pct70=평균백분위, score50/70=환산점수. gun=모집군.",
+    "omittedNoData": { "count": 60, "byGroup": { "수능위주(계약학과)": 4, "수능(특성화고교)": 15, "수능(기초생활수급자및차상위계층)": 20, "수능(농어촌학생)": 20, "수능(농어촌학생 실기)": 1 }, "note": "미제출(등록인원 없음/3명 이하) 모집단위는 결과에서 제외, 건수만 표기(개략 집계)" }
+  },
+  "records": [
+    { "screeningName": "수능(일반 실기)", "gun": "가", "dept": "특수체육교육과", "field": "예체능", "quotaFinal": 6, "ratio": 7.2, "waitlistFilled": 3, "score50": 752, "score70": 736, "pct50": 59, "pct70": 43, "remark": null },
+
+    { "screeningName": "수능(일반)", "gun": "가", "dept": "관광학부", "field": "인문", "quotaFinal": 6, "ratio": 22.5, "waitlistFilled": 9, "score50": 772, "score70": 768, "pct50": 59, "pct70": 65, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "가", "dept": "외식산업학부", "field": "자연", "quotaFinal": 7, "ratio": 19, "waitlistFilled": 7, "score50": 758, "score70": 750, "pct50": 62, "pct70": 55, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "가", "dept": "특수교육과", "field": "인문", "quotaFinal": 3, "ratio": 12.5, "waitlistFilled": 1, "score50": 772, "score70": 764, "pct50": 46, "pct70": 53, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "가", "dept": "안경광학과", "field": "보건의료", "quotaFinal": 6, "ratio": 23, "waitlistFilled": 5, "score50": 780, "score70": 774, "pct50": 69, "pct70": 64, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "가", "dept": "경상학부", "field": "인문", "quotaFinal": 11, "ratio": 47.5, "waitlistFilled": 5, "score50": 782, "score70": 778, "pct50": 63, "pct70": 53, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "가", "dept": "유아교육과", "field": "인문", "quotaFinal": 3, "ratio": 16.5, "waitlistFilled": 4, "score50": 772, "score70": 770, "pct50": 56, "pct70": 57, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "가", "dept": "치위생학과", "field": "보건의료", "quotaFinal": 6, "ratio": 24, "waitlistFilled": 16, "score50": 804, "score70": 782, "pct50": 66, "pct70": 65, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "가", "dept": "물리치료학과", "field": "보건의료", "quotaFinal": 2, "ratio": 11.5, "waitlistFilled": 2, "score50": 862, "score70": 854, "pct50": 55, "pct70": 66, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "가", "dept": "기독교학부", "field": "인문", "quotaFinal": 10, "ratio": 43, "waitlistFilled": 7, "score50": 742, "score70": 730, "pct50": 37, "pct70": 50, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "가", "dept": "첨단IT학부", "field": "공학", "quotaFinal": 14, "ratio": 64.5, "waitlistFilled": 20, "score50": 768, "score70": 764, "pct50": 64, "pct70": 61, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "가", "dept": "응급구조학과", "field": "보건의료", "quotaFinal": 4, "ratio": 16, "waitlistFilled": 4, "score50": 764, "score70": 756, "pct50": 63, "pct70": 62, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "나", "dept": "유아특수교육과", "field": "인문", "quotaFinal": 3, "ratio": 13.33, "waitlistFilled": null, "score50": 788, "score70": 772, "pct50": 55, "pct70": 48, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "나", "dept": "자유전공학부", "field": "기타", "quotaFinal": 10, "ratio": 8.7, "waitlistFilled": 28, "score50": 786, "score70": 774, "pct50": 52, "pct70": 52, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "나", "dept": "어문학부", "field": "인문", "quotaFinal": 8, "ratio": 3.38, "waitlistFilled": 12, "score50": 736, "score70": 664, "pct50": 58, "pct70": 50, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "나", "dept": "간호학과", "field": "보건의료", "quotaFinal": 13, "ratio": 7.54, "waitlistFilled": 13, "score50": 850, "score70": 848, "pct50": 64, "pct70": 72, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "나", "dept": "작업치료학과", "field": "보건의료", "quotaFinal": 8, "ratio": 5, "waitlistFilled": 8, "score50": 784, "score70": 760, "pct50": 55, "pct70": 51, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "나", "dept": "관광학부 항공서비스전공", "field": "기타", "quotaFinal": 2, "ratio": 33.5, "waitlistFilled": 1, "score50": 806, "score70": 796, "pct50": 54, "pct70": 64, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "나", "dept": "컴퓨터공학부", "field": "공학", "quotaFinal": 12, "ratio": 9.17, "waitlistFilled": 24, "score50": 762, "score70": 760, "pct50": 61, "pct70": 65, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "나", "dept": "관광학부 글로벌호텔비즈니스전공", "field": "인문", "quotaFinal": 4, "ratio": 9.75, "waitlistFilled": 3, "score50": 780, "score70": 778, "pct50": 57, "pct70": 58, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "나", "dept": "사회복지학부", "field": "인문", "quotaFinal": 13, "ratio": 9, "waitlistFilled": 14, "score50": 764, "score70": 756, "pct50": 61, "pct70": 62, "remark": null },
+    { "screeningName": "수능(일반)", "gun": "나", "dept": "경찰학부", "field": "인문", "quotaFinal": 4, "ratio": 12.75, "waitlistFilled": 5, "score50": 808, "score70": 800, "pct50": 55, "pct70": 62, "remark": null }
+  ]
+}

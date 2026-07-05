@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "university": "상명대학교",
+    "universityCode": "SMU2",
+    "campus": "천안캠퍼스",
+    "region": "천안",
+    "year": 2026,
+    "admissionRound": "수시",
+    "screeningType": "교과",
+    "cutType": "70",
+    "referenceOnly": false,
+    "source": "대입정보포털 어디가",
+    "note": "컷=환산등급(70% 기준). 환산점수는 참고용 score 필드로 보관. 실데이터는 학생부교과(학생부교과전형)뿐이며 특성화고교졸업자전형·농어촌학생전형은 전부 미제출(통합모집/모집인원3명이하)로 제외.",
+    "omittedNoData": { "count": 62, "byScreening": { "학생부교과(특성화고교졸업자전형)": 31, "학생부교과(농어촌학생전형)": 31 }, "note": "미제출(통합모집·모집인원3명이하) 모집단위는 결과에서 제외, 건수만 표기(개략 집계)" }
+  },
+  "records": [
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "스마트정보통신공학과", "field": "공학", "quotaFinal": 20, "ratio": 5.6, "waitlistFilled": 36, "score50": 920, "score70": 913.98, "cut50": 4.61, "cut70": 4.62, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "자유전공(인문사회계열)", "field": "인문", "quotaFinal": 17, "ratio": 5.29, "waitlistFilled": 16, "score50": 914.96, "score70": 910.68, "cut50": 4.58, "cut70": 4.65, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "건설시스템공학과", "field": "공학", "quotaFinal": 11, "ratio": 9.18, "waitlistFilled": 13, "score50": 935.23, "score70": 933.39, "cut50": 4.02, "cut70": 4.06, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "정보보안공학과", "field": "공학", "quotaFinal": 12, "ratio": 4.92, "waitlistFilled": 16, "score50": 936, "score70": 930.09, "cut50": 3.99, "cut70": 4.08, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "전자공학과", "field": "공학", "quotaFinal": 12, "ratio": 5.58, "waitlistFilled": 22, "score50": 935.23, "score70": 926.44, "cut50": 4.11, "cut70": 4.38, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "글로벌금융경영학부", "field": "인문", "quotaFinal": 21, "ratio": 6.33, "waitlistFilled": 24, "score50": 944.7, "score70": 942.18, "cut50": 3.78, "cut70": 3.81, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "그린화학공학과", "field": "공학", "quotaFinal": 13, "ratio": 5.62, "waitlistFilled": 36, "score50": 934.11, "score70": 933.83, "cut50": 4.23, "cut70": 4.12, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "자유전공(디자인/예술계열)", "field": "예체능", "quotaFinal": 22, "ratio": 11.05, "waitlistFilled": 42, "score50": 965, "score70": 962.09, "cut50": 2.85, "cut70": 3.03, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "글로벌지역학부", "field": "인문", "quotaFinal": 69, "ratio": 6.22, "waitlistFilled": 106, "score50": 934.39, "score70": 929.6, "cut50": 4.13, "cut70": 4, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "시스템반도체공학과", "field": "공학", "quotaFinal": 14, "ratio": 4.93, "waitlistFilled": 21, "score50": 935.79, "score70": 933.74, "cut50": 4.13, "cut70": 4.06, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "휴먼지능로봇공학과", "field": "공학", "quotaFinal": 13, "ratio": 7.23, "waitlistFilled": 15, "score50": 923.39, "score70": 917.24, "cut50": 4.46, "cut70": 4.61, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "예술학부 문화예술경영전공", "field": "예체능", "quotaFinal": 6, "ratio": 4.83, "waitlistFilled": 1, "score50": 961.88, "score70": 957.36, "cut50": 2.9, "cut70": 3.23, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "식품공학과", "field": "공학", "quotaFinal": 10, "ratio": 7.6, "waitlistFilled": 19, "score50": 951.11, "score70": 950.77, "cut50": 3.47, "cut70": 3.64, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "간호학과", "field": "보건의료", "quotaFinal": 24, "ratio": 5.68, "waitlistFilled": 33, "score50": 965.66, "score70": 964.41, "cut50": 2.88, "cut70": 2.87, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "AI모빌리티공학과", "field": "공학", "quotaFinal": 10, "ratio": 13.4, "waitlistFilled": 13, "score50": 924.77, "score70": 918.8, "cut50": 3.82, "cut70": 4.37, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "글로벌지역학부 한국언어문화전공", "field": "인문", "quotaFinal": 9, "ratio": 5.44, "waitlistFilled": 13, "score50": 937.76, "score70": 934.31, "cut50": 3.97, "cut70": 4.11, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "디자인학부 AR·VR미디어디자인전공", "field": "예체능", "quotaFinal": 9, "ratio": 7.33, "waitlistFilled": 7, "score50": 969.73, "score70": 964.66, "cut50": 2.5, "cut70": 2.68, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "그린스마트시티학과", "field": "공학", "quotaFinal": 17, "ratio": 4.71, "waitlistFilled": 28, "score50": 934.96, "score70": 928.11, "cut50": 3.88, "cut70": 4.16, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "경영공학과", "field": "공학", "quotaFinal": 11, "ratio": 8.45, "waitlistFilled": 4, "score50": 935.09, "score70": 930.97, "cut50": 4.18, "cut70": 3.8, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "소프트웨어학과", "field": "공학", "quotaFinal": 12, "ratio": 4.58, "waitlistFilled": 27, "score50": 932.11, "score70": 929.09, "cut50": 3.95, "cut70": 4.18, "remark": null },
+    { "screeningName": "학생부교과(학생부교과전형)", "dept": "자유전공(공학계열)", "field": "공학", "quotaFinal": 77, "ratio": 9.51, "waitlistFilled": 112, "score50": 936.03, "score70": 934.61, "cut50": 3.91, "cut70": 4.06, "remark": null }
+  ]
+}

@@ -13,7 +13,85 @@
         "dku2_2026_susi_jong.json",
         "dku2_2026_jungsi.json"
       ]
+    },
+    {
+      "code": "BU",
+      "name": "백석대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "bu_2026_susi_gyo.json",
+        "bu_2026_susi_jong.json",
+        "bu_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "KNU",
+      "name": "나사렛대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "knu_2026_susi_gyo.json",
+        "knu_2026_susi_jong.json",
+        "knu_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "NSU",
+      "name": "남서울대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "nsu_2026_susi_gyo.json",
+        "nsu_2026_susi_jong.json",
+        "nsu_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "KOREATECH",
+      "name": "한국기술교육대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "koreatech_2026_susi_gyo.json",
+        "koreatech_2026_susi_jong.json",
+        "koreatech_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "HOSEO2",
+      "name": "호서대학교",
+      "campus": "천안·아산캠퍼스",
+      "campusMerged": false,
+      "files": [
+        "hoseo2_2026_susi_gyo.json",
+        "hoseo2_2026_susi_jong.json",
+        "hoseo2_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "SMU2",
+      "name": "상명대학교",
+      "campus": "천안캠퍼스",
+      "campusMerged": false,
+      "files": [
+        "smu2_2026_susi_gyo.json",
+        "smu2_2026_susi_jong.json",
+        "smu2_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "KONGJU2",
+      "name": "국립공주대학교",
+      "campus": "천안캠퍼스",
+      "campusMerged": true,
+      "note": "어디가 원자료가 공주·예산·천안 전 캠퍼스 통합 데이터라 천안캠 외 학과도 포함됨(추후 캠퍼스 분리 검토).",
+      "files": [
+        "kongju2_2026_susi_gyo.json",
+        "kongju2_2026_susi_jong.json",
+        "kongju2_2026_jungsi.json"
+      ]
     }
   ],
-  "pending": ["BU", "KNU", "NSU", "KOREATECH", "HOSEO2", "SMU2", "KONGJU2"]
+  "pending": []
 }

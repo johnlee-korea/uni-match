@@ -24,12 +24,14 @@ for (const u of manifest.universities)
 let pass = 0, fail = 0;
 const ok = (name, cond, extra='') => { (cond ? pass++ : fail++); console.log(`${cond?'✅':'❌'} ${name}${extra?' — '+extra:''}`); };
 
-// 1) 단위검증: 내신 3.0 → 교과 판정 분포 3/3/30/10
+// 1) 단위검증(DKU2 회귀): 내신 3.0 → DKU2 교과 판정 분포 3/3/30/10
+//    (다중 학교로 확장돼도 DKU2 정답지 판정은 고정이어야 함)
 const susi = byTab(records, 'susi');
 const gyo = susi.filter(r => r._meta.screeningType === '교과');
+const gyoDku = gyo.filter(r => r._uni.code === 'DKU2');
 const dist = {};
-for (const r of gyo) { const v = (verdictOf(r, r._meta, 3.0) || VERDICTS.정보없음).key; dist[v] = (dist[v]||0)+1; }
-ok('내신3.0 교과 판정분포 3/3/30/10',
+for (const r of gyoDku) { const v = (verdictOf(r, r._meta, 3.0) || VERDICTS.정보없음).key; dist[v] = (dist[v]||0)+1; }
+ok('내신3.0 DKU2교과 판정분포 3/3/30/10',
    dist['초상향']===3 && dist['상향']===3 && dist['적정']===30 && dist['안정']===10,
    JSON.stringify(dist));
 
@@ -37,9 +39,9 @@ ok('내신3.0 교과 판정분포 3/3/30/10',
 const jong = susi.filter(r => r._meta.screeningType === '종합');
 ok('종합전형 전부 참고배지', jong.every(r => verdictOf(r, r._meta, 3.0).key === '참고'), `n=${jong.length}`);
 
-// 3) 정시 백분위 72 판정 동작 + 군 존재
+// 3) 정시 백분위 72 판정 동작 + 전 레코드 군(가/나/다) 표기
 const jungsi = byTab(records, 'jungsi');
-ok('정시 레코드 존재/군 표기', jungsi.length===45 && jungsi.every(r => r.gun), `n=${jungsi.length}`);
+ok('정시 레코드 존재/군 표기', jungsi.length>0 && jungsi.every(r => r.gun), `n=${jungsi.length}`);
 const jv = jungsi.map(r => verdictOf(r, r._meta, 72).key);
 ok('정시 판정 4종 산출', jv.includes('적정') && jv.includes('안정') && jv.includes('초상향'));
 

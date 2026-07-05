@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "university": "백석대학교",
+    "universityCode": "BU",
+    "campus": "",
+    "region": "천안",
+    "year": 2026,
+    "admissionRound": "수시",
+    "screeningType": "종합",
+    "cutType": "70",
+    "referenceOnly": true,
+    "source": "대입정보포털 어디가",
+    "note": "학생부종합=서류 중심 정성평가. 컷(환산등급)·환산점수는 참고용. 본교 종합은 환산점수/환산등급 모두 제공되어 score·cut에 함께 보관.",
+    "omittedNoData": { "count": 0, "byScreening": {}, "note": "미제출/0명 모집 없음" }
+  },
+  "records": [
+    { "screeningName": "학생부종합(창의인재)", "dept": "첨단IT학부", "field": "공학", "quotaFinal": 15, "ratio": 3.2, "waitlistFilled": 23, "score50": 666.35, "score70": 657.86, "cut50": 5.79, "cut70": 6.07, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "어문학부", "field": "인문", "quotaFinal": 5, "ratio": 9.8, "waitlistFilled": 8, "score50": 691.13, "score70": 678.75, "cut50": 4.96, "cut70": 5.38, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "외식산업학부", "field": "자연", "quotaFinal": 3, "ratio": 15.33, "waitlistFilled": 2, "score50": 687.22, "score70": 687.22, "cut50": 5.09, "cut70": 5.09, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "특수체육교육과", "field": "예체능", "quotaFinal": 5, "ratio": 11.2, "waitlistFilled": 4, "score50": 721.67, "score70": 717.45, "cut50": 3.94, "cut70": 4.09, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "특수교육과", "field": "인문", "quotaFinal": 15, "ratio": 3.6, "waitlistFilled": 25, "score50": 699.31, "score70": 685.18, "cut50": 4.69, "cut70": 5.16, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "유아특수교육과", "field": "인문", "quotaFinal": 4, "ratio": 4, "waitlistFilled": 4, "score50": 673.85, "score70": 671.89, "cut50": 5.54, "cut70": 5.6, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "유아교육과", "field": "인문", "quotaFinal": 20, "ratio": 6.8, "waitlistFilled": 32, "score50": 700.63, "score70": 694.29, "cut50": 4.65, "cut70": 4.86, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "경찰학부", "field": "인문", "quotaFinal": 20, "ratio": 8.55, "waitlistFilled": 23, "score50": 710.38, "score70": 705, "cut50": 4.32, "cut70": 4.5, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "사회복지학부", "field": "인문", "quotaFinal": 30, "ratio": 6.13, "waitlistFilled": 43, "score50": 690, "score70": 680, "cut50": 5, "cut70": 5.33, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "경상학부", "field": "인문", "quotaFinal": 10, "ratio": 10, "waitlistFilled": 18, "score50": 699.18, "score70": 684, "cut50": 4.69, "cut70": 5.2, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "관광학부", "field": "인문", "quotaFinal": 8, "ratio": 4, "waitlistFilled": 14, "score50": 688.16, "score70": 671.19, "cut50": 5.06, "cut70": 5.63, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "안경광학과", "field": "보건의료", "quotaFinal": 3, "ratio": 10.33, "waitlistFilled": 6, "score50": 697.87, "score70": 697.87, "cut50": 4.74, "cut70": 4.74, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "관광학부 글로벌호텔비즈니스전공", "field": "인문", "quotaFinal": 3, "ratio": 6.33, "waitlistFilled": null, "score50": 671.31, "score70": 671.31, "cut50": 5.62, "cut70": 5.62, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "컴퓨터공학부", "field": "공학", "quotaFinal": 15, "ratio": 3.67, "waitlistFilled": 26, "score50": 678.68, "score70": 664, "cut50": 5.38, "cut70": 5.87, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "스포츠과학부", "field": "예체능", "quotaFinal": 5, "ratio": 11.4, "waitlistFilled": 3, "score50": 698.73, "score70": 696.79, "cut50": 4.71, "cut70": 4.77, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "응급구조학과", "field": "보건의료", "quotaFinal": 10, "ratio": 10.8, "waitlistFilled": 30, "score50": 700.2, "score70": 699.78, "cut50": 4.66, "cut70": 4.67, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "작업치료학과", "field": "보건의료", "quotaFinal": 10, "ratio": 8.9, "waitlistFilled": 16, "score50": 698.89, "score70": 685.47, "cut50": 4.7, "cut70": 5.15, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "물리치료학과", "field": "보건의료", "quotaFinal": 15, "ratio": 11.13, "waitlistFilled": 20, "score50": 727.76, "score70": 725, "cut50": 3.74, "cut70": 3.83, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "간호학과", "field": "보건의료", "quotaFinal": 15, "ratio": 16.13, "waitlistFilled": 11, "score50": 745.71, "score70": 743.9, "cut50": 3.14, "cut70": 3.2, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "치위생학과", "field": "보건의료", "quotaFinal": 11, "ratio": 23.18, "waitlistFilled": 24, "score50": 704.73, "score70": 699.83, "cut50": 4.51, "cut70": 4.67, "remark": null },
+    { "screeningName": "학생부종합(창의인재)", "dept": "기독교학부", "field": "인문", "quotaFinal": 5, "ratio": 3.4, "waitlistFilled": 10, "score50": 651.43, "score70": 640.85, "cut50": 6.29, "cut70": 6.64, "remark": null }
+  ]
+}

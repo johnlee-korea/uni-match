@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "university": "한국기술교육대학교",
+    "universityCode": "KOREATECH",
+    "campus": "",
+    "region": "천안",
+    "year": 2026,
+    "admissionRound": "정시",
+    "screeningType": "정시",
+    "cutType": "70",
+    "referenceOnly": false,
+    "source": "대입정보포털 어디가",
+    "note": "정시 판정은 평균백분위(70% 기준). pct50/pct70=평균백분위, score50/70=환산점수(100점 만점 환산). gun=모집군. 전형: 수능(일반전형).",
+    "omittedNoData": { "count": 0, "byGroup": {}, "note": "정시 5개 모집단위 모두 백분위 데이터 존재, 제외 없음" }
+  },
+  "records": [
+    { "screeningName": "수능(일반전형)", "gun": "가", "dept": "공학융합계열", "field": "공학", "quotaFinal": 52, "ratio": 6.8, "waitlistFilled": 19, "score50": 84.28, "score70": 83.99, "pct50": 77, "pct70": 77, "remark": null },
+    { "screeningName": "수능(일반전형)", "gun": "나", "dept": "ICT융합계열", "field": "공학", "quotaFinal": 33, "ratio": 5.5, "waitlistFilled": 35, "score50": 85.09, "score70": 83.89, "pct50": 76, "pct70": 78, "remark": null },
+    { "screeningName": "수능(일반전형)", "gun": "나", "dept": "사회융합계열", "field": "인문", "quotaFinal": 25, "ratio": 3.8, "waitlistFilled": 11, "score50": 80.25, "score70": 79.85, "pct50": 74, "pct70": 66, "remark": null },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "자율전공(인문)", "field": "인문", "quotaFinal": 6, "ratio": 9.2, "waitlistFilled": 6, "score50": 83.3, "score70": 82.95, "pct50": 77, "pct70": 73, "remark": null },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "자율전공(자연)", "field": "자연", "quotaFinal": 38, "ratio": 10.4, "waitlistFilled": 48, "score50": 86.52, "score70": 85.26, "pct50": 82, "pct70": 81, "remark": null }
+  ]
+}

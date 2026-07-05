@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "university": "나사렛대학교",
+    "universityCode": "KNU",
+    "campus": "",
+    "region": "천안",
+    "year": 2026,
+    "admissionRound": "정시",
+    "screeningType": "정시",
+    "cutType": "70",
+    "referenceOnly": false,
+    "source": "대입정보포털 어디가",
+    "note": "정시 판정은 평균백분위(70% 기준). pct50/pct70=평균백분위, score50/70=환산점수. gun=모집군. 수능위주(일반학생) 전형만 데이터 존재.",
+    "omittedNoData": { "count": 1, "byGroup": { "수능위주(일반학생) 내 미제출": 1 }, "note": "임상병리학과(모집인원 3명 이하) 미제출로 제외" }
+  },
+  "records": [
+    { "screeningName": "수능(일반학생)", "gun": "가", "dept": "간호학과", "field": "보건의료", "quotaFinal": 17, "ratio": 4.53, "waitlistFilled": 12, "score50": 790, "score70": 785.4, "pct50": 50, "pct70": 60, "remark": null },
+    { "screeningName": "수능(일반학생)", "gun": "가", "dept": "물리치료학과", "field": "보건의료", "quotaFinal": 6, "ratio": 7.17, "waitlistFilled": 6, "score50": 768, "score70": 764, "pct50": 46, "pct70": 64, "remark": null },
+    { "screeningName": "수능(일반학생)", "gun": "가", "dept": "응급구조학과", "field": "보건의료", "quotaFinal": 10, "ratio": 5.8, "waitlistFilled": 24, "score50": 680, "score70": 670, "pct50": 48, "pct70": 52, "remark": null },
+    { "screeningName": "수능(일반학생)", "gun": "가", "dept": "콩칼리지", "field": "기타", "quotaFinal": 142, "ratio": 8.03, "waitlistFilled": 135, "score50": 654, "score70": 644, "pct50": 50, "pct70": 45, "remark": "광역 교양대학. 이월 121명 포함 최종 142명" },
+    { "screeningName": "수능(일반학생)", "gun": "가", "dept": "유아특수교육과", "field": "인문", "quotaFinal": 26, "ratio": 4.12, "waitlistFilled": 9, "score50": 697.7, "score70": 680.5, "pct50": 35, "pct70": 44, "remark": null },
+    { "screeningName": "수능(일반학생)", "gun": "가", "dept": "특수교육과", "field": "인문", "quotaFinal": 7, "ratio": 4.14, "waitlistFilled": 1, "score50": 795, "score70": 755, "pct50": 68, "pct70": 65, "remark": null },
+    { "screeningName": "수능(일반학생)", "gun": "가", "dept": "중등특수교육과", "field": "인문", "quotaFinal": 6, "ratio": 4.0, "waitlistFilled": 3, "score50": 774, "score70": 773.7, "pct50": 61, "pct70": 48, "remark": null }
+  ]
+}
