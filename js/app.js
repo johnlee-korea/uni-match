@@ -111,7 +111,8 @@ function renderInput() {
 
   app.innerHTML = `
   <section class="wrap hero">
-    <h1>내 성적으로 어디 갈 수 있어?</h1>
+    <h1 class="brand">어<span class="dot-sep">.</span>대<span class="dot-sep">.</span>가</h1>
+    <p class="brand-sub">내 성적으로 <b>‘어느 대학으로 가는지’</b> 알아보자</p>
 
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" data-tab="susi"   aria-selected="${!isJ}">수시 (내신)</button>

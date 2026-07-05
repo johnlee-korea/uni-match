@@ -18,6 +18,11 @@ button { font-family: inherit; cursor: pointer; }
 /* ===== 입력 히어로 ===== */
 .hero { padding: var(--sp-8) 0 var(--sp-6); }
 .hero h1 { font-size: var(--fs-hero); margin: 0 0 var(--sp-6); letter-spacing: -.02em; }
+/* 브랜드 타이틀(어.대.가) + 부제 */
+.hero h1.brand { margin-bottom: var(--sp-2); letter-spacing: .04em; }
+.hero h1.brand .dot-sep { color: var(--v-safe); }
+.brand-sub { margin: 0 0 var(--sp-6); color: var(--ink-2); font-size: var(--fs-md); }
+.brand-sub b { color: var(--ink); font-weight: 700; }
 
 .tabs { display: flex; gap: var(--sp-2); margin-bottom: var(--sp-4); }
 .tab {
