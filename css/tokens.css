@@ -19,6 +19,12 @@
   --v-ref:     #8B7EC8;   /* 참고(종합) 보라 */
   --v-none:    #9CA3AF;   /* 정보없음 회색 */
 
+  /* 브랜드 액센트(판정색과 구분되는 UI 크롬 전용 — 인디고→블루 그라데이션) */
+  --brand:      #4F46E5;
+  --brand-2:    #2563EB;
+  --brand-grad: linear-gradient(135deg, #4F46E5 0%, #2563EB 100%);
+  --brand-soft: #EEF0FE;   /* 선택 칩 등 연한 배경 */
+
   /* 판정 배지 배경(연한 톤, 텍스트는 진한 동색) */
   --v-reach2-bg: #FBEAEA;
   --v-reach1-bg: #FCEFE2;
@@ -33,11 +39,14 @@
 
   /* 반경·그림자 */
   --r-1: 8px; --r-2: 12px; --r-3: 16px; --r-pill: 999px;
-  --shadow-1: 0 1px 2px rgba(17,24,39,.04), 0 1px 3px rgba(17,24,39,.06);
-  --shadow-2: 0 4px 16px rgba(17,24,39,.10);
+  --shadow-1: 0 1px 2px rgba(17,24,39,.03), 0 2px 6px rgba(17,24,39,.05);
+  --shadow-2: 0 8px 30px rgba(17,24,39,.12), 0 2px 8px rgba(17,24,39,.06);
+  --shadow-hover: 0 6px 20px rgba(17,24,39,.09), 0 2px 6px rgba(17,24,39,.05);
+  --shadow-brand: 0 6px 18px rgba(79,70,229,.28);
+  --ease: cubic-bezier(.2,.7,.3,1);
 
   /* 타이포 */
-  --font: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+  --font: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
           'Malgun Gothic', 'Segoe UI', system-ui, sans-serif;
   --fs-hero: 28px;
   --fs-lg: 20px;

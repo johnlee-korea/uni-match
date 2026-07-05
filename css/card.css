@@ -1,13 +1,26 @@
 /* 결과 카드 + 시그니처 컷 스케일바 + 판정 배지 — 색=정보 원칙의 유일한 색 사용처 */
 
 .card {
-  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-2);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-3);
   box-shadow: var(--shadow-1); overflow: hidden;
+  transition: transform .16s var(--ease), box-shadow .18s var(--ease), border-color .16s var(--ease);
 }
+@media (hover: hover) {
+  .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); border-color: var(--line); }
+}
+.card.open { box-shadow: var(--shadow-hover); }
 .card-head {
+  position: relative;
   width: 100%; text-align: left; background: none; border: none; padding: var(--sp-4);
-  display: block;
+  padding-right: 40px; display: block;
 }
+/* 펼침 셰브런 */
+.card-head::after {
+  content: ''; position: absolute; right: var(--sp-4); top: 50%;
+  width: 9px; height: 9px; border-right: 2px solid var(--ink-3); border-bottom: 2px solid var(--ink-3);
+  transform: translateY(-50%) rotate(45deg); transition: transform .22s var(--ease);
+}
+.card.open .card-head::after { transform: translateY(-50%) rotate(-135deg); }
 .card-row1 { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-2); }
 .card-uni { font-size: var(--fs-sm); color: var(--ink-2); font-weight: 600; }
 .campus-badge {
