@@ -176,7 +176,7 @@ button { font-family: inherit; cursor: pointer; }
 .footer { border-top: 1px solid var(--line); padding: var(--sp-6) 0; color: var(--ink-3); font-size: var(--fs-xs); text-align: center; }
 
 /* 응원 문구(입력 화면 맨 아래) */
-.cheer { margin: var(--sp-6) 0 var(--sp-2); text-align: center; color: var(--v-reach2); font-size: var(--fs-sm); font-weight: 600; }
+.cheer { margin: var(--sp-6) 0 var(--sp-2); text-align: center; color: var(--v-safe); font-size: var(--fs-sm); font-weight: 600; }
 
 /* PC 2열 */
 @media (min-width: 720px) {
