@@ -64,6 +64,10 @@ async function init() {
   state.recMap = new Map(state.data.records.map(r => [recordKey(r), r]));
   state.favorites = new Set(loadFavorites().filter(k => state.recMap.has(k)));
 
+  // 공유 링크(#b=...)로 들어오면 공유받은 원서함 화면부터 표시
+  const sharedKeys = getSharedBasketKeys();
+  if (sharedKeys) { renderSharedBasket(sharedKeys); return; }
+
   const saved = loadScore();
   if (saved) {
     state.tab = saved.tab || 'susi'; state.susi = saved.susi; state.jungsi = saved.jungsi; state.field = saved.field;
@@ -369,6 +373,7 @@ function basketBodyHtml() {
 }
 
 function openBasket() {
+  const hasFav = state.favorites.size > 0;
   const el = document.createElement('div');
   el.innerHTML = `
   <div class="sheet-backdrop open" data-close="1"></div>
@@ -378,11 +383,13 @@ function openBasket() {
       <p class="basket-note">담은 학과로 원서 전략을 세워보세요. 수시는 최대 <b>6곳</b>, 정시는 <b>가·나·다 군당 1곳</b>씩 지원합니다.</p>
       <div class="basket-body">${basketBodyHtml()}</div>
     </div>
+    ${hasFav ? `<div class="sheet-foot"><button class="btn-primary" id="share-basket" style="margin-top:0;flex:1;">🔗 이 원서함 공유하기</button></div>` : ''}
   </div>`;
   document.body.appendChild(el);
   const close = () => el.remove();
   el.addEventListener('click', e => {
     if (e.target.dataset && e.target.dataset.close) { close(); return; }
+    if (e.target.closest('#share-basket')) { shareBasket(); return; }
     const rm = e.target.closest('.bi-remove');
     if (rm) {
       state.favorites.delete(rm.dataset.key);
@@ -416,25 +423,116 @@ function shareResult() {
     navigator.share(data).catch(() => {}); // 모바일 네이티브 공유(카톡 등). 사용자 취소는 무시
     return;
   }
-  // 데스크톱 폴백: 클립보드 → 실패 시 execCommand → 그래도 안 되면 주소 안내
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(SITE_URL).then(() => toast('링크를 복사했어요')).catch(legacyCopy);
-  } else {
-    legacyCopy();
-  }
+  copyText(SITE_URL, '링크를 복사했어요');
 }
 
-function legacyCopy() {
+// 문자열 복사(클립보드 → execCommand 폴백)
+function copyText(str, okMsg = '복사했어요! 붙여넣기 하세요') {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(str).then(() => toast(okMsg)).catch(() => legacyCopy(str, okMsg));
+  } else {
+    legacyCopy(str, okMsg);
+  }
+}
+function legacyCopy(str, okMsg = '복사했어요! 붙여넣기 하세요') {
   try {
     const ta = document.createElement('textarea');
-    ta.value = SITE_URL; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    ta.value = str; ta.style.position = 'fixed'; ta.style.opacity = '0';
     document.body.appendChild(ta); ta.focus(); ta.select();
     const ok = document.execCommand('copy');
     ta.remove();
-    toast(ok ? '링크를 복사했어요' : `주소: ${SITE_URL}`);
-  } catch (e) {
-    toast(`주소: ${SITE_URL}`);
+    toast(ok ? okMsg : '복사에 실패했어요');
+  } catch (e) { toast('복사에 실패했어요'); }
+}
+
+// ── 원서함 공유 ─────────────────────────────────────
+// 관심 학과 키들을 URL 해시(#b=)에 담아 링크로 공유. 성적은 싣지 않음(개인정보 보호).
+function encodeBasket(keys) {
+  return btoa(unescape(encodeURIComponent(keys.join('\n')))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+function decodeBasket(code) {
+  try {
+    const b64 = code.replace(/-/g, '+').replace(/_/g, '/');
+    return decodeURIComponent(escape(atob(b64))).split('\n').filter(Boolean);
+  } catch (e) { return []; }
+}
+function basketShareUrl() { return SITE_URL + '#b=' + encodeBasket([...state.favorites]); }
+
+// 해시에서 공유된 원서함 키(현재 데이터에 존재하는 것만) 추출
+function getSharedBasketKeys() {
+  const m = (location.hash || '').match(/[#&]b=([^&]+)/);
+  if (!m) return null;
+  const keys = decodeBasket(m[1]).filter(k => state.recMap.has(k));
+  return keys.length ? keys : null;
+}
+function clearHashToHome() {
+  try { history.replaceState(null, '', location.pathname + location.search); }
+  catch (e) { location.hash = ''; }
+}
+
+function buildBasketText(favs) {
+  const line = r => `- ${r.dept} (${r._uni.name})`;
+  const susi = favs.filter(r => r._meta.admissionRound === '수시');
+  const jung = favs.filter(r => r._meta.admissionRound === '정시');
+  const out = ['🔖 내 원서함 · 어대가'];
+  if (susi.length) { out.push('', `▪ 수시 (${susi.length})`); susi.forEach(r => out.push(line(r))); }
+  for (const g of ['가', '나', '다']) {
+    const arr = jung.filter(r => r.gun === g);
+    if (arr.length) { out.push('', `▪ 정시 ${g}군 (${arr.length})`); arr.forEach(r => out.push(line(r))); }
   }
+  const etc = jung.filter(r => !['가', '나', '다'].includes(r.gun));
+  if (etc.length) { out.push('', '▪ 정시'); etc.forEach(r => out.push(line(r))); }
+  out.push('', '내 성적으론 어디 갈까? 👇');
+  return out.join('\n');
+}
+
+function shareBasket() {
+  const favs = [...state.favorites].map(k => state.recMap.get(k)).filter(Boolean);
+  if (!favs.length) { toast('먼저 관심 학과를 담아주세요'); return; }
+  const text = buildBasketText(favs);
+  const url = basketShareUrl();
+  if (navigator.share) { navigator.share({ title: '어.대.가 · 내 원서함', text, url }).catch(() => {}); return; }
+  copyText(`${text}\n${url}`, '원서함을 복사했어요! 붙여넣기 하세요');
+}
+
+function importSharedBasket() {
+  const keys = getSharedBasketKeys() || [];
+  keys.forEach(k => state.favorites.add(k));
+  saveFavorites(state.favorites);
+  clearHashToHome();
+  toast(`원서함에 ${keys.length}곳 담았어요`);
+  renderInput();
+}
+
+// 공유받은 원서함 화면(성적 없이 리스트만 표시)
+function renderSharedBasket(keys) {
+  state.submitted = false;
+  const recs = keys.map(k => state.recMap.get(k)).filter(Boolean);
+  const line = r => {
+    const gunTag = r._meta.admissionRound === '정시' && r.gun ? ` · ${esc(r.gun)}군` : '';
+    return `<li class="basket-item"><div class="bi-main">
+      <div class="bi-dept">${esc(r.dept)}</div>
+      <div class="bi-sub">${esc(r._uni.name)} · ${esc(r.screeningName)}${gunTag}</div>
+    </div></li>`;
+  };
+  const section = (title, arr) => arr.length
+    ? `<div class="basket-group"><h4>${title} <span class="bg-n">${arr.length}</span></h4><ul class="basket-list">${arr.map(line).join('')}</ul></div>` : '';
+  const susi = recs.filter(r => r._meta.admissionRound === '수시');
+  const jung = recs.filter(r => r._meta.admissionRound === '정시');
+  let groups = section('수시', susi);
+  for (const g of ['가', '나', '다']) groups += section(`정시 ${g}군`, jung.filter(r => r.gun === g));
+  groups += section('정시', jung.filter(r => !['가', '나', '다'].includes(r.gun)));
+
+  app.innerHTML = `
+  <section class="wrap shared-view">
+    <div class="shared-badge">🔖 공유받은 원서함</div>
+    <h1 class="shared-title">누군가 <b>이렇게 지원</b>했어요</h1>
+    <p class="shared-sub">총 ${recs.length}곳의 지원 리스트예요. 내 성적으론 어디까지 갈 수 있는지 확인해보세요.</p>
+    ${groups}
+    <button class="btn-primary" id="exit-shared">내 성적으로 확인해보기</button>
+    <button class="btn-ghost" id="import-shared" style="width:100%;margin-top:8px;border-radius:12px;">이 리스트 내 원서함에 담기</button>
+    <p class="cheer" style="margin-top:24px;">이시호 화이팅 아빠가 응원해♥</p>
+  </section>`;
 }
 
 let toastTimer = null;
@@ -494,6 +592,8 @@ document.addEventListener('click', e => {
   if (t.id === 'go')     { commitScore(); renderResults(); return; }
   if (t.id === 'browse') { commitScore(); renderResults(); return; }
   if (t.id === 'reset-input') { resetInput(); return; }
+  if (t.id === 'exit-shared') { clearHashToHome(); renderInput(); return; }
+  if (t.id === 'import-shared') { importSharedBasket(); return; }
   if (t.id === 'open-help') { openHelp(); return; }
   if (t.id === 'share-btn') { shareResult(); return; }
   if (t.id === 'more-disc') { showFullDisclaimer(); return; }

@@ -317,6 +317,14 @@ button { font-family: inherit; cursor: pointer; }
 .basket-empty .muted { color: var(--ink-3); font-size: var(--fs-sm); margin-top: var(--sp-2); }
 .basket-empty b { color: #F5A623; }
 
+/* ===== 공유받은 원서함 화면 ===== */
+.shared-view { padding: var(--sp-8) 0 var(--sp-6); }
+.shared-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: var(--r-pill); background: var(--brand-soft); color: var(--brand); font-size: var(--fs-sm); font-weight: 700; margin-bottom: var(--sp-4); }
+.shared-title { font-size: var(--fs-hero); margin: 0 0 var(--sp-2); letter-spacing: -.02em; }
+.shared-title b { background: var(--brand-grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+.shared-sub { margin: 0 0 var(--sp-6); color: var(--ink-2); font-size: var(--fs-md); line-height: 1.6; }
+.shared-view .btn-primary { margin-top: var(--sp-5); }
+
 /* ===== 토스트 ===== */
 .toast {
   position: fixed; left: 50%; bottom: 76px; transform: translateX(-50%) translateY(8px);
