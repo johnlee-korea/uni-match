@@ -134,6 +134,11 @@ function renderInput() {
       <button id="more-disc">자세히 보기</button>
     </div>
 
+    <a class="contact" href="https://open.kakao.com/o/sPkt6GCi" target="_blank" rel="noopener">
+      <span class="contact-ico">💬</span>
+      <span>문의사항 · 대학 데이터 추가 요청은 <b>카카오톡 오픈채팅</b>으로 알려주세요</span>
+    </a>
+
     <p class="cheer">이시호 화이팅 아빠가 응원해♥</p>
   </section>`;
 }
@@ -187,6 +192,7 @@ function renderResults() {
     <div class="footer">
       출처: 대입정보포털 어디가 · 2026학년도 전형결과<br>
       성적 산출 방식에 따라 실제와 차이가 있을 수 있습니다. ${state.data.omittedTotal ? `· 미제출(데이터 없음) ${state.data.omittedTotal}건 제외` : ''}
+      <br><a class="footer-contact" href="https://open.kakao.com/o/sPkt6GCi" target="_blank" rel="noopener">💬 문의 · 대학 데이터 추가 요청 (카카오톡 오픈채팅)</a>
     </div>
   </div>
   ${filterSheet()}`;

@@ -221,6 +221,19 @@ button { font-family: inherit; cursor: pointer; }
 
 .footer { border-top: 1px solid var(--line); padding: var(--sp-6) 0; color: var(--ink-3); font-size: var(--fs-xs); text-align: center; }
 
+/* 문의 안내(카카오톡 오픈채팅) */
+.contact {
+  display: flex; align-items: center; gap: var(--sp-2); margin-top: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4); border: 1px solid var(--line); border-radius: var(--r-2);
+  background: var(--surface); color: var(--ink-2); font-size: var(--fs-sm);
+  text-decoration: none; transition: border-color .16s var(--ease), background .16s var(--ease);
+}
+.contact:hover { border-color: var(--brand); background: var(--brand-soft); }
+.contact .contact-ico { font-size: 18px; line-height: 1; flex: none; }
+.contact b { color: var(--brand); font-weight: 700; }
+.footer-contact { display: inline-block; margin-top: var(--sp-2); color: var(--brand); text-decoration: none; font-weight: 600; }
+.footer-contact:hover { text-decoration: underline; }
+
 /* 응원 문구(입력 화면 맨 아래) */
 .cheer {
   margin: var(--sp-8) auto var(--sp-4); text-align: center; color: var(--brand);
