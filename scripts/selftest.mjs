@@ -45,6 +45,15 @@ ok('정시 레코드 존재/군 표기', jungsi.length>0 && jungsi.every(r => r.
 const jv = jungsi.map(r => verdictOf(r, r._meta, 72).key);
 ok('정시 판정 4종 산출', jv.includes('적정') && jv.includes('안정') && jv.includes('초상향'));
 
+// 3b) 정시 영어 보조지표: eng70 대다수 보강 + 값 범위 + 카드에 영어줄(내 등급 반영)
+const engRecs = jungsi.filter(r => r.eng70 != null);
+const engRange = jungsi.every(r => (r.eng70==null || (Number.isInteger(r.eng70) && r.eng70>=1 && r.eng70<=9)));
+ok('정시 영어등급 보강(eng70)', engRecs.length >= jungsi.length*0.8 && engRange, `n=${engRecs.length}/${jungsi.length}`);
+const engCard = renderCard(engRecs[0], 72, 0, 2);        // 영어 2등급 입력
+ok('정시 카드 영어 보조줄(충족/미달) 표시', engCard.includes('eng-line') && /충족|미달/.test(engCard));
+const noEngCard = renderCard(engRecs[0], 72, 0, null);   // 영어 미입력
+ok('영어 미입력 시 충족/미달 라벨 없음', noEngCard.includes('eng-line') && !/충족|미달/.test(noEngCard));
+
 // 4) 정렬(판정순) 첫 항목이 적정 우선
 const sorted = sortRecords(gyo, 'verdict', 3.0);
 ok('판정순 정렬 = 적정 먼저', (verdictOf(sorted[0], sorted[0]._meta, 3.0)||{}).key === '적정');

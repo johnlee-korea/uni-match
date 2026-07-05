@@ -22,6 +22,7 @@ export function saveScore(state) {
       susi: state.susi ?? null,
       jungsi: state.jungsi ?? null,
       jungsiSub: state.jungsiSub ?? null, // 정시 과목별 백분위(입력 원본)
+      eng: state.eng ?? null,             // 정시 영어 등급
       field: state.field ?? null
     };
     localStorage.setItem(KEY, JSON.stringify(safe));

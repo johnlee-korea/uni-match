@@ -14,6 +14,7 @@ const state = {
   susi: null,      // 내신 등급
   jungsi: null,    // 정시 평균 백분위 — 과목별 입력값의 평균(자동 계산). 하위 판정/정렬은 이 값만 사용
   jungsiSub: { kor: null, math: null, tam1: null, tam2: null }, // 정시 과목별 백분위(입력 원본)
+  eng: null,       // 정시 영어 등급(1~9, 절대평가). 판정엔 안 섞고 카드에 보조지표로만 비교
   field: null,     // 선택 계열(선택사항)
   submitted: false,
   sort: 'verdict',
@@ -29,6 +30,7 @@ const JUNGSI_SUBJECTS = [
 ];
 
 const curScore = () => state.tab === 'jungsi' ? state.jungsi : state.susi;
+const curEng = () => state.tab === 'jungsi' ? state.eng : null; // 영어 보조지표(정시만)
 
 // 입력된 과목만 골라 평균 백분위 산출(소수 1자리). 하나도 없으면 null
 function calcJungsiAvg() {
@@ -57,6 +59,7 @@ async function init() {
   const saved = loadScore();
   if (saved) {
     state.tab = saved.tab || 'susi'; state.susi = saved.susi; state.jungsi = saved.jungsi; state.field = saved.field;
+    state.eng = saved.eng ?? null;
     if (saved.jungsiSub && typeof saved.jungsiSub === 'object')
       state.jungsiSub = { kor: null, math: null, tam1: null, tam2: null, ...saved.jungsiSub };
   }
@@ -90,6 +93,14 @@ function renderInput() {
       </div>
       <p class="hint">아는 과목만 입력해도 돼요. 입력한 과목들의 <b>평균 백분위</b>로 판정합니다.</p>
       <div class="avg-readout" id="js-avg">${avgReadout(state.jungsi)}</div>
+      <div class="eng-input-row">
+        <label for="js-eng">영어 등급</label>
+        <select class="eng-select" id="js-eng">
+          <option value="">선택</option>
+          ${[1,2,3,4,5,6,7,8,9].map(g => `<option value="${g}" ${state.eng===g?'selected':''}>${g}등급</option>`).join('')}
+        </select>
+        <span class="eng-input-note">절대평가라 평균에 안 섞고 학과별로 따로 비교해요.</span>
+      </div>
     </div>` : `
     <div class="field-group">
       <label for="score">내신 등급 (소수점 2자리)</label>
@@ -143,8 +154,9 @@ function renderResults() {
   const viewNote = score == null
     ? `<div class="viewmode-note">성적을 입력하면 지원 판정이 표시됩니다. 지금은 작년 컷만 보여주는 <b>열람 모드</b>예요.</div>` : '';
 
+  const eng = curEng();
   const cards = sorted.length
-    ? sorted.map((r, i) => renderCard(r, score, i)).join('')
+    ? sorted.map((r, i) => renderCard(r, score, i, eng)).join('')
     : `<div class="empty"><h3>조건에 맞는 학과가 없어요</h3><p>필터를 풀어보세요.</p><button class="btn-ghost" id="reset-filters">필터 초기화</button></div>`;
 
   app.innerHTML = `
@@ -246,6 +258,10 @@ document.addEventListener('input', e => {
 
 document.addEventListener('change', e => {
   if (e.target.id === 'sort') { state.sort = e.target.value; updateResultsOnly(); }
+  else if (e.target.id === 'js-eng') {
+    const v = e.target.value;
+    state.eng = v === '' ? null : parseInt(v, 10);
+  }
 });
 
 document.addEventListener('click', e => {
@@ -285,7 +301,7 @@ function selectField(fl) {
   renderInput();
 }
 function commitScore() {
-  saveScore({ tab: state.tab, susi: state.susi, jungsi: state.jungsi, jungsiSub: state.jungsiSub, field: state.field });
+  saveScore({ tab: state.tab, susi: state.susi, jungsi: state.jungsi, jungsiSub: state.jungsiSub, eng: state.eng, field: state.field });
 }
 function updateResultsOnly() {
   if (!state.submitted) return;
@@ -295,8 +311,9 @@ function updateResultsOnly() {
   const sorted = sortRecords(filtered, state.sort, score);
   const box = $('#results');
   if (!box) return;
+  const eng = curEng();
   box.innerHTML = sorted.length
-    ? sorted.map((r, i) => renderCard(r, score, i)).join('')
+    ? sorted.map((r, i) => renderCard(r, score, i, eng)).join('')
     : `<div class="empty"><h3>조건에 맞는 학과가 없어요</h3><p>필터를 풀어보세요.</p><button class="btn-ghost" id="reset-filters">필터 초기화</button></div>`;
 }
 function toggleSheet(open) {

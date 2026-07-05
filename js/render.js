@@ -46,8 +46,24 @@ function scaleBar(record, meta, score, verdict) {
     </div>`;
 }
 
+// ── 영어 보조지표(정시 전용) ─────────────────────────────────────
+// 국수탐 백분위 판정과는 별개. 영어는 절대평가 '등급'이라 백분위 평균에 섞지 않고 따로 비교.
+// engScore=사용자 영어 등급(1~9), record.eng70=작년 70%컷 영어 평균등급.
+function engLine(record, meta, engScore) {
+  if (meta.admissionRound !== '정시' || record.eng70 == null) return '';
+  const cut = record.eng70;
+  let cls = 'eng-neutral', mark = '';
+  if (engScore != null) {
+    const ok = engScore <= cut;            // 등급은 낮을수록 우수
+    cls = ok ? 'eng-ok' : 'eng-under';
+    mark = ok ? '충족' : '미달';
+  }
+  const mine = engScore != null ? `내 <b>${esc(String(engScore))}</b>등급` : '영어';
+  return `<p class="eng-line ${cls}">영어 ${mine} · 작년 컷 ${esc(String(cut))}등급${mark ? ` · ${mark}` : ''}</p>`;
+}
+
 // ── 카드 ─────────────────────────────────────
-export function renderCard(record, score, idx) {
+export function renderCard(record, score, idx, engScore = null) {
   const meta = record._meta, uni = record._uni;
   const verdict = verdictOf(record, meta, score);
   const badge = verdict || VERDICTS.정보없음; // 미입력 열람 모드에선 배지 숨김 처리(아래)
@@ -72,6 +88,8 @@ export function renderCard(record, score, idx) {
   ];
   if (isJungsi) {
     rows.push(['평균백분위(50/70)', `${num(record.pct50)} / ${num(record.pct70)}`]);
+    if (record.eng70 != null || record.eng50 != null)
+      rows.push(['영어 평균등급(50/70)', `${num(record.eng50)} / ${num(record.eng70)}`]);
     rows.push(['환산점수(50/70)', `${num(record.score50)} / ${num(record.score70)}`]);
   } else {
     rows.push(['컷 등급(50/70)', `${num(record.cut50)} / ${num(record.cut70)}`]);
@@ -96,6 +114,7 @@ export function renderCard(record, score, idx) {
       <h3 class="card-dept">${esc(record.dept)}</h3>
       <p class="card-screening">${esc(record.screeningName)}${gunTag}</p>
       ${scaleBar(record, meta, score, verdict)}
+      ${engLine(record, meta, engScore)}
     </button>
     <div class="card-detail">
       ${reason ? `<p class="detail-reason">${esc(reason)}</p>` : ''}
