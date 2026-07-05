@@ -12,14 +12,36 @@ const state = {
   data: null,
   tab: 'susi',
   susi: null,      // 내신 등급
-  jungsi: null,    // 평균백분위
+  jungsi: null,    // 정시 평균 백분위 — 과목별 입력값의 평균(자동 계산). 하위 판정/정렬은 이 값만 사용
+  jungsiSub: { kor: null, math: null, tam1: null, tam2: null }, // 정시 과목별 백분위(입력 원본)
   field: null,     // 선택 계열(선택사항)
   submitted: false,
   sort: 'verdict',
   filters: { unis: new Set(), screeningTypes: new Set(), fields: new Set(), verdicts: new Set(), query: '' }
 };
 
+// 정시 입력 과목 정의(단순 평균으로 판정. 추후 대학별 반영비율 반영 여지)
+const JUNGSI_SUBJECTS = [
+  { k: 'kor',  label: '국어' },
+  { k: 'math', label: '수학' },
+  { k: 'tam1', label: '탐구1' },
+  { k: 'tam2', label: '탐구2' }
+];
+
 const curScore = () => state.tab === 'jungsi' ? state.jungsi : state.susi;
+
+// 입력된 과목만 골라 평균 백분위 산출(소수 1자리). 하나도 없으면 null
+function calcJungsiAvg() {
+  const vals = JUNGSI_SUBJECTS
+    .map(s => state.jungsiSub[s.k])
+    .filter(v => typeof v === 'number' && !isNaN(v));
+  if (!vals.length) return null;
+  const avg = vals.reduce((a, b) => a + b, 0) / vals.length;
+  return Math.round(avg * 10) / 10;
+}
+
+// 평균 백분위 표시 문구(미입력 시 대시)
+const avgReadout = v => `평균 백분위 <b>${v == null ? '—' : v}</b>`;
 
 // ── 초기 로딩 ─────────────────────────────────────
 init();
@@ -33,7 +55,11 @@ async function init() {
     return;
   }
   const saved = loadScore();
-  if (saved) { state.tab = saved.tab || 'susi'; state.susi = saved.susi; state.jungsi = saved.jungsi; state.field = saved.field; }
+  if (saved) {
+    state.tab = saved.tab || 'susi'; state.susi = saved.susi; state.jungsi = saved.jungsi; state.field = saved.field;
+    if (saved.jungsiSub && typeof saved.jungsiSub === 'object')
+      state.jungsiSub = { kor: null, math: null, tam1: null, tam2: null, ...saved.jungsiSub };
+  }
   renderInput();
 }
 
@@ -49,24 +75,39 @@ function renderInput() {
     }).join('');
 
   const isJ = state.tab === 'jungsi';
-  const val = isJ ? (state.jungsi ?? '') : (state.susi ?? '');
+
+  // 정시: 과목별 백분위 입력 그리드 + 평균 표시 / 수시: 내신 등급 단일 입력
+  const scoreGroup = isJ ? `
+    <div class="field-group">
+      <label>수능 과목별 백분위</label>
+      <div class="subj-grid">
+        ${JUNGSI_SUBJECTS.map(s => `
+        <div class="subj">
+          <span class="subj-lab">${s.label}</span>
+          <input class="subj-input" data-subj="${s.k}" type="text" inputmode="decimal" autocomplete="off"
+                 placeholder="백분위" value="${state.jungsiSub[s.k] ?? ''}">
+        </div>`).join('')}
+      </div>
+      <p class="hint">아는 과목만 입력해도 돼요. 입력한 과목들의 <b>평균 백분위</b>로 판정합니다.</p>
+      <div class="avg-readout" id="js-avg">${avgReadout(state.jungsi)}</div>
+    </div>` : `
+    <div class="field-group">
+      <label for="score">내신 등급 (소수점 2자리)</label>
+      <input id="score" class="score-input" type="text" inputmode="decimal" autocomplete="off"
+             placeholder="예: 3.00" value="${state.susi ?? ''}">
+      <p class="hint">주요 과목 평균 등급을 입력하세요. 낮을수록 상위예요.</p>
+    </div>`;
 
   app.innerHTML = `
   <section class="wrap hero">
     <h1>내 성적으로 어디 갈 수 있어?</h1>
-    <p class="sub">천안권 대학 8개교 · 2026 입시결과 기준 · 회원가입 없이 바로</p>
 
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" data-tab="susi"   aria-selected="${!isJ}">수시 (내신)</button>
       <button class="tab" role="tab" data-tab="jungsi" aria-selected="${isJ}">정시 (수능)</button>
     </div>
 
-    <div class="field-group">
-      <label for="score">${isJ ? '수능 평균 백분위' : '내신 등급 (소수점 2자리)'}</label>
-      <input id="score" class="score-input" type="text" inputmode="decimal" autocomplete="off"
-             placeholder="${isJ ? '예: 72.5' : '예: 3.00'}" value="${val}">
-      <p class="hint">${isJ ? '백분위 입력이 가장 정확해요. (등급만 안다면 대략적인 백분위로 입력)' : '주요 과목 평균 등급을 입력하세요. 낮을수록 상위예요.'}</p>
-    </div>
+    ${scoreGroup}
 
     <div class="field-group">
       <label>계열 (선택)</label>
@@ -183,10 +224,20 @@ function openHelp() {
 // ── 이벤트 위임 ─────────────────────────────────────
 document.addEventListener('input', e => {
   if (e.target.id === 'score') {
+    // 수시 내신 등급(정시는 과목별 입력을 사용)
     const v = e.target.value.replace(/[^0-9.]/g, '');
     const n = v === '' ? null : parseFloat(v);
-    if (state.tab === 'jungsi') state.jungsi = isNaN(n) ? null : n;
-    else state.susi = isNaN(n) ? null : n;
+    state.susi = isNaN(n) ? null : n;
+  } else if (e.target.classList && e.target.classList.contains('subj-input')) {
+    // 정시 과목별 백분위 → 평균 재계산 후 표시만 갱신(재렌더 없이 포커스 유지)
+    const key = e.target.dataset.subj;
+    const v = e.target.value.replace(/[^0-9.]/g, '');
+    let n = v === '' ? null : parseFloat(v);
+    if (n != null && !isNaN(n)) n = Math.min(100, Math.max(0, n)); else n = null;
+    state.jungsiSub[key] = n;
+    state.jungsi = calcJungsiAvg();
+    const out = $('#js-avg');
+    if (out) out.innerHTML = avgReadout(state.jungsi);
   } else if (e.target.id === 'search') {
     state.filters.query = e.target.value;
     updateResultsOnly();
@@ -234,7 +285,7 @@ function selectField(fl) {
   renderInput();
 }
 function commitScore() {
-  saveScore({ tab: state.tab, susi: state.susi, jungsi: state.jungsi, field: state.field });
+  saveScore({ tab: state.tab, susi: state.susi, jungsi: state.jungsi, jungsiSub: state.jungsiSub, field: state.field });
 }
 function updateResultsOnly() {
   if (!state.submitted) return;
