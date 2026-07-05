@@ -18,7 +18,7 @@ const state = {
   field: null,     // 선택 계열(선택사항)
   submitted: false,
   sort: 'verdict',
-  filters: { unis: new Set(), screeningTypes: new Set(), fields: new Set(), verdicts: new Set(), query: '' }
+  filters: { unis: new Set(), screeningTypes: new Set(), guns: new Set(), admTypes: new Set(), fields: new Set(), verdicts: new Set(), query: '' }
 };
 
 // 정시 입력 과목 정의(단순 평균으로 판정. 추후 대학별 반영비율 반영 여지)
@@ -150,7 +150,7 @@ function renderResults() {
     : `열람 모드`;
 
   const summaryHtml = score != null ? renderSummary(base, score, eng) : '';
-  const activeFilterCount = state.filters.unis.size + state.filters.screeningTypes.size + state.filters.fields.size + state.filters.verdicts.size;
+  const activeFilterCount = state.filters.unis.size + state.filters.screeningTypes.size + state.filters.guns.size + state.filters.admTypes.size + state.filters.fields.size + state.filters.verdicts.size;
 
   const viewNote = score == null
     ? `<div class="viewmode-note">성적을 입력하면 지원 판정이 표시됩니다. 지금은 작년 컷만 보여주는 <b>열람 모드</b>예요.</div>` : '';
@@ -197,6 +197,15 @@ function filterSheet() {
   const typeBoxes = f.types.map(t => chk('screeningTypes', t, t, state.filters.screeningTypes)).join('');
   const fieldBoxes = f.fields.map(fl => chk('fields', fl, fl, state.filters.fields)).join('');
   const verdictBoxes = VERDICT_ORDER.map(v => chk('verdicts', v, v, state.filters.verdicts)).join('');
+
+  // 정시=모집군(가/나/다), 수시=전형유형(일반/지역인재/기회·특별) 섹션을 탭에 맞춰 노출
+  const isJ = state.tab === 'jungsi';
+  const gunBoxes = f.guns.map(g => chk('guns', g, `${g}군`, state.filters.guns)).join('');
+  const admBoxes = f.admTypes.map(t => chk('admTypes', t, t, state.filters.admTypes)).join('');
+  const tabSection = isJ
+    ? (f.guns.length ? `<div class="filter-section"><h4>모집군</h4><div class="chips">${gunBoxes}</div></div>` : '')
+    : (f.admTypes.length ? `<div class="filter-section"><h4>전형유형</h4><div class="chips">${admBoxes}</div></div>` : '');
+
   return `
   <div class="sheet-backdrop" id="sheet-bd"></div>
   <div class="sheet" id="sheet" role="dialog" aria-label="필터">
@@ -204,6 +213,7 @@ function filterSheet() {
     <div class="sheet-body">
       <div class="filter-section"><h4>대학</h4><div class="chips">${uniBoxes}</div></div>
       <div class="filter-section"><h4>전형구분</h4><div class="chips">${typeBoxes}</div></div>
+      ${tabSection}
       <div class="filter-section"><h4>계열</h4><div class="chips">${fieldBoxes}</div></div>
       <div class="filter-section"><h4>판정</h4><div class="chips">${verdictBoxes}</div></div>
     </div>
@@ -291,6 +301,9 @@ function switchTab(tab) {
   if (tab === state.tab) return;
   state.tab = tab;
   state.filters.verdicts.clear();
+  // 모집군·전형유형은 탭 전용 조건이라 탭 전환 시 초기화(정시 모집군이 수시 결과를 가리는 것 방지)
+  state.filters.guns.clear();
+  state.filters.admTypes.clear();
   if (state.submitted) renderResults(); else renderInput();
 }
 function selectField(fl) {
@@ -301,6 +314,10 @@ function selectField(fl) {
   renderInput();
 }
 function commitScore() {
+  // 계열 선택을 결과 필터에 확정 반영. 저장값 복원 등 selectField를 거치지 않은 경우에도
+  // 조회 시점에 조회조건(계열)이 필터에 확실히 걸리도록 동기화한다.
+  state.filters.fields.clear();
+  if (state.field) state.filters.fields.add(state.field);
   saveScore({ tab: state.tab, susi: state.susi, jungsi: state.jungsi, jungsiSub: state.jungsiSub, eng: state.eng, field: state.field });
 }
 function updateResultsOnly() {
@@ -323,14 +340,14 @@ function toggleSheet(open) {
 }
 function applySheet() {
   const boxes = document.querySelectorAll('#sheet input[type="checkbox"]');
-  const next = { unis: new Set(), screeningTypes: new Set(), fields: new Set(), verdicts: new Set(), query: state.filters.query };
+  const next = { unis: new Set(), screeningTypes: new Set(), guns: new Set(), admTypes: new Set(), fields: new Set(), verdicts: new Set(), query: state.filters.query };
   boxes.forEach(b => { if (b.checked) next[b.dataset.fk].add(b.value); });
   state.filters = next;
   toggleSheet(false);
   renderResults();
 }
 function clearFilters() {
-  state.filters = { unis: new Set(), screeningTypes: new Set(), fields: new Set(), verdicts: new Set(), query: '' };
+  state.filters = { unis: new Set(), screeningTypes: new Set(), guns: new Set(), admTypes: new Set(), fields: new Set(), verdicts: new Set(), query: '' };
   renderResults();
 }
 function toggleVerdictFilter(v) {
