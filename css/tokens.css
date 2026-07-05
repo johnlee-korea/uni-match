@@ -1,6 +1,7 @@
 /* 디자인 토큰 — "차분한 신뢰 + 또렷한 판정".
    색은 정보다: 판정 4색 + 참고색은 배지·스케일바·요약 스트립에서만 사용. 그 외 UI는 무채색. */
 :root {
+  color-scheme: light;
   /* 바탕·잉크(무채색) */
   --bg:        #FAFBFC;
   --surface:   #FFFFFF;
@@ -10,6 +11,8 @@
   --line:      #E5E7EB;   /* 구분선 */
   --line-2:    #EEF1F4;
   --hover:     #F3F5F7;
+  --sticky-bg: rgba(250,251,252,.78);
+  --glow:      rgba(79,70,229,.07);
 
   /* 판정 5색(색=정보) */
   --v-reach2:  #D64545;   /* 초상향 빨강 */
@@ -57,4 +60,34 @@
   /* 레이아웃 */
   --maxw: 960px;
   --sticky-h: 52px;
+}
+
+/* ===== 다크 테마 ===== (data-theme는 <head> 인라인 스크립트가 지정: 저장값→시스템) */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:        #0F141A;
+  --surface:   #171E27;
+  --ink:       #E8EDF3;
+  --ink-2:     #A9B4C0;
+  --ink-3:     #6C7684;
+  --line:      #2A343F;
+  --line-2:    #222B34;
+  --hover:     #1E2732;
+  --sticky-bg: rgba(15,20,26,.72);
+  --glow:      rgba(139,147,255,.10);
+
+  /* 판정색: 어두운 배경에서 대비 확보를 위해 살짝 밝게, 배경 톤은 어둡게 */
+  --v-reach2:  #F2726F; --v-reach1: #F0A05A; --v-fit: #4FC17E; --v-safe: #6AB0E8; --v-ref: #B0A4EC; --v-none: #8A94A0;
+  --v-reach2-bg: #3A2422; --v-reach1-bg: #3A2E1E; --v-fit-bg: #16301F;
+  --v-safe-bg:   #152A3A; --v-ref-bg:   #251F3A; --v-none-bg: #252C34;
+
+  /* 브랜드 액센트: 다크에서 밝은 인디고, 연한 배경은 어둡게 */
+  --brand:      #8B93FF;
+  --brand-2:    #6E9BF5;
+  --brand-soft: #20263E;
+
+  --shadow-1: 0 1px 2px rgba(0,0,0,.40), 0 2px 6px rgba(0,0,0,.30);
+  --shadow-2: 0 10px 34px rgba(0,0,0,.55), 0 2px 8px rgba(0,0,0,.40);
+  --shadow-hover: 0 6px 20px rgba(0,0,0,.45);
+  --shadow-brand: 0 6px 18px rgba(79,70,229,.45);
 }

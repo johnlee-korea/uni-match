@@ -5,9 +5,10 @@ body {
   font-family: var(--font);
   background: var(--bg);
   background-image:
-    radial-gradient(1200px 480px at 50% -260px, rgba(79,70,229,.07), transparent 70%);
+    radial-gradient(1200px 480px at 50% -260px, var(--glow), transparent 70%);
   background-repeat: no-repeat;
   color: var(--ink);
+  transition: background-color .25s var(--ease), color .25s var(--ease);
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -20,6 +21,21 @@ button { font-family: inherit; cursor: pointer; }
 :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 6px; }
 
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--sp-4); }
+
+/* 다크모드 토글 버튼(우하단 플로팅) */
+.theme-toggle {
+  position: fixed; right: 14px; bottom: 14px; z-index: 30;
+  width: 46px; height: 46px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  font-size: 20px; line-height: 1; box-shadow: var(--shadow-2);
+  transition: transform .15s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
+}
+.theme-toggle:hover { transform: translateY(-2px); border-color: var(--brand); }
+.theme-toggle:active { transform: translateY(0); }
+@supports (padding: max(0px)) {
+  .theme-toggle { bottom: max(14px, env(safe-area-inset-bottom)); right: max(14px, env(safe-area-inset-right)); }
+}
 
 /* ===== 입력 히어로 ===== */
 .hero { padding: var(--sp-8) 0 var(--sp-6); }
@@ -100,7 +116,7 @@ button { font-family: inherit; cursor: pointer; }
 .eng-line b { font-variant-numeric: tabular-nums; }
 .eng-line.eng-ok    { color: var(--v-fit);    background: var(--v-fit-bg); }
 .eng-line.eng-under { color: var(--v-reach2); background: var(--v-reach2-bg); }
-.eng-line.eng-neutral { color: var(--ink-2); background: #F3F4F6; }
+.eng-line.eng-neutral { color: var(--ink-2); background: var(--v-none-bg); }
 
 .chips { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
 .chip {
@@ -134,7 +150,7 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ===== sticky 성적 바 ===== */
 .stickybar {
-  position: sticky; top: 0; z-index: 20; background: rgba(250,251,252,.78);
+  position: sticky; top: 0; z-index: 20; background: var(--sticky-bg);
   backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--line);
 }

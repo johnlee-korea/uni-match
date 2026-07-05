@@ -6,6 +6,27 @@
   <meta name="description" content="어대가 — 내 성적으로 '어느 대학으로 가는지' 30초 만에 확인. 2026 입시결과 기준, 회원가입 없음.">
   <title>어.대.가 · 어느 대학으로 가는지</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+  <!-- 테마 초기화(FOUC 방지): 저장값 → 없으면 시스템 설정. CSS 로드 전에 data-theme 지정 -->
+  <script>
+    (function () {
+      var KEY = 'uni-match:theme', root = document.documentElement;
+      var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
+      var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.dataset.theme = (saved === 'dark' || saved === 'light') ? saved : (sysDark ? 'dark' : 'light');
+      // 버튼 아이콘·라벨 동기화(버튼이 DOM에 있을 때만)
+      window.__applyThemeIcon = function () {
+        var t = root.dataset.theme, b = document.getElementById('theme-toggle');
+        if (b) { b.textContent = t === 'dark' ? '☀️' : '🌙';
+                 b.setAttribute('aria-label', t === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환'); }
+      };
+      window.__toggleTheme = function () {
+        var t = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = t;
+        try { localStorage.setItem(KEY, t); } catch (e) {}
+        window.__applyThemeIcon();
+      };
+    })();
+  </script>
   <!-- Pretendard 웹폰트(동적 서브셋) — 한글 UI 가독성·완성도 -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" as="style" crossorigin
@@ -15,6 +36,8 @@
   <link rel="stylesheet" href="css/card.css">
 </head>
 <body>
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환" onclick="__toggleTheme()">🌙</button>
+  <script>__applyThemeIcon();</script>
   <main id="app">
     <div class="loading">불러오는 중…</div>
   </main>
