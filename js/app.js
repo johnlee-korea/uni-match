@@ -139,22 +139,22 @@ function renderInput() {
 function renderResults() {
   state.submitted = true;
   const score = curScore();
+  const eng = curEng();
   const base = byTab(state.data.records, state.tab);
-  const filtered = applyFilters(base, state.filters, score);
-  const sorted = sortRecords(filtered, state.sort, score);
+  const filtered = applyFilters(base, state.filters, score, eng);
+  const sorted = sortRecords(filtered, state.sort, score, eng);
 
   const scoreDisp = score == null ? '' : (state.tab === 'jungsi' ? String(score) : Number(score).toFixed(2));
   const scoreLabel = score != null
     ? `${state.tab === 'jungsi' ? '백분위' : '내신'} <b class="tnum">${scoreDisp}</b> 기준`
     : `열람 모드`;
 
-  const summaryHtml = score != null ? renderSummary(base, score) : '';
+  const summaryHtml = score != null ? renderSummary(base, score, eng) : '';
   const activeFilterCount = state.filters.unis.size + state.filters.screeningTypes.size + state.filters.fields.size + state.filters.verdicts.size;
 
   const viewNote = score == null
     ? `<div class="viewmode-note">성적을 입력하면 지원 판정이 표시됩니다. 지금은 작년 컷만 보여주는 <b>열람 모드</b>예요.</div>` : '';
 
-  const eng = curEng();
   const cards = sorted.length
     ? sorted.map((r, i) => renderCard(r, score, i, eng)).join('')
     : `<div class="empty"><h3>조건에 맞는 학과가 없어요</h3><p>필터를 풀어보세요.</p><button class="btn-ghost" id="reset-filters">필터 초기화</button></div>`;
@@ -306,12 +306,12 @@ function commitScore() {
 function updateResultsOnly() {
   if (!state.submitted) return;
   const score = curScore();
+  const eng = curEng();
   const base = byTab(state.data.records, state.tab);
-  const filtered = applyFilters(base, state.filters, score);
-  const sorted = sortRecords(filtered, state.sort, score);
+  const filtered = applyFilters(base, state.filters, score, eng);
+  const sorted = sortRecords(filtered, state.sort, score, eng);
   const box = $('#results');
   if (!box) return;
-  const eng = curEng();
   box.innerHTML = sorted.length
     ? sorted.map((r, i) => renderCard(r, score, i, eng)).join('')
     : `<div class="empty"><h3>조건에 맞는 학과가 없어요</h3><p>필터를 풀어보세요.</p><button class="btn-ghost" id="reset-filters">필터 초기화</button></div>`;

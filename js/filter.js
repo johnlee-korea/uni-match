@@ -8,14 +8,14 @@ export function byTab(records, tab) {
 }
 
 // 필터 상태: { unis:Set, screeningTypes:Set, fields:Set, verdicts:Set, query:string }
-export function applyFilters(records, f, score) {
+export function applyFilters(records, f, score, engGrade = null) {
   const q = (f.query || '').trim().toLowerCase();
   return records.filter(r => {
     if (f.unis?.size && !f.unis.has(r._uni.code)) return false;
     if (f.screeningTypes?.size && !f.screeningTypes.has(r._meta.screeningType)) return false;
     if (f.fields?.size && !f.fields.has(r.field)) return false;
     if (f.verdicts?.size) {
-      const v = (verdictOf(r, r._meta, score) || VERDICTS.정보없음).key;
+      const v = (verdictOf(r, r._meta, score, engGrade) || VERDICTS.정보없음).key;
       if (!f.verdicts.has(v)) return false;
     }
     if (q) {
@@ -29,7 +29,7 @@ export function applyFilters(records, f, score) {
 const orderIndex = k => { const i = VERDICT_ORDER.indexOf(k); return i < 0 ? 99 : i; };
 
 // 정렬. 기본=판정순(적정→안정→상향→초상향→참고→정보없음), 그 외 컷/대학/경쟁률
-export function sortRecords(records, sortKey, score) {
+export function sortRecords(records, sortKey, score, engGrade = null) {
   const arr = records.slice();
   const cutOf = r => r._meta.admissionRound === '정시' ? (r.pct70 ?? -1) : (r.cut70 ?? 99);
   if (sortKey === 'cut') {
@@ -45,8 +45,8 @@ export function sortRecords(records, sortKey, score) {
   } else {
     // verdict(기본): 판정 우선순위 → 같은 판정 내 컷 근접순
     arr.sort((a, b) => {
-      const va = (verdictOf(a, a._meta, score) || VERDICTS.정보없음).key;
-      const vb = (verdictOf(b, b._meta, score) || VERDICTS.정보없음).key;
+      const va = (verdictOf(a, a._meta, score, engGrade) || VERDICTS.정보없음).key;
+      const vb = (verdictOf(b, b._meta, score, engGrade) || VERDICTS.정보없음).key;
       const d = orderIndex(va) - orderIndex(vb);
       if (d) return d;
       return cutOf(a) - cutOf(b);

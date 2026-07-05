@@ -1,5 +1,5 @@
 // 렌더링 — 요약 스트립, 결과 카드, 시그니처 컷 스케일바, 아코디언 상세
-import { verdictOf, verdictReason, VERDICT_ORDER, VERDICTS } from './verdict.js';
+import { verdictOf, verdictReason, jungsiEffective, VERDICT_ORDER, VERDICTS } from './verdict.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const num = v => (v == null ? '—' : String(v));
@@ -23,22 +23,29 @@ function scaleGeometry(c50, c70, score, betterIsLow) {
   };
 }
 
-function scaleBar(record, meta, score, verdict) {
+function scaleBar(record, meta, score, verdict, engGrade) {
   const isJungsi = meta.admissionRound === '정시';
-  const c50 = isJungsi ? record.pct50 : record.cut50;
-  const c70 = isJungsi ? record.pct70 : record.cut70;
+  // 정시: 영어 입력 시 종합백분위(국수탐+영어환산)로, 아니면 국수탐 백분위로 표시
+  let c50, c70, dotScore;
+  if (isJungsi) {
+    const e = jungsiEffective(record, score, engGrade);
+    c50 = e.cut50; c70 = e.cut; dotScore = e.my;
+  } else {
+    c50 = record.cut50; c70 = record.cut70; dotScore = score;
+  }
   if (c50 == null && c70 == null) return '';
-  const g = scaleGeometry(c50, c70, score, !isJungsi);
+  const g = scaleGeometry(c50, c70, dotScore, !isJungsi);
   const unit = isJungsi ? '백분위' : '등급';
   const colorCls = (verdict && verdict.color) ? verdict.color : 'v-none';
-  const lo = isJungsi ? Math.max(c50, c70) : Math.min(c50, c70); // 좌측(유리) 라벨
-  const hi = isJungsi ? Math.min(c50, c70) : Math.max(c50, c70);
-  const dotAria = score != null
-    ? `내 ${unit} ${score}, 작년 컷 ${c70} 기준 ${verdict ? verdict.key : ''}`
-    : `작년 컷 구간 ${c50}~${c70}`;
+  const d50 = c50 == null ? null : Math.round(c50); // 종합값은 소수 → 라벨은 정수로
+  const d70 = c70 == null ? null : Math.round(c70);
+  const dDot = dotScore == null ? null : Math.round(dotScore);
+  const dotAria = dotScore != null
+    ? `내 ${unit} ${dDot}, 작년 컷 ${d70} 기준 ${verdict ? verdict.key : ''}`
+    : `작년 컷 구간 ${d50}~${d70}`;
   return `
     <div class="scale" role="img" aria-label="${esc(dotAria)}">
-      <div class="scale-labels"><span>컷50 ${num(c50)}</span><span>컷70 ${num(c70)}</span></div>
+      <div class="scale-labels"><span>컷50 ${num(d50)}</span><span>컷70 ${num(d70)}</span></div>
       <div class="scale-track">
         <div class="scale-band ${colorCls}" style="left:${g.left.toFixed(1)}%;width:${g.width.toFixed(1)}%"></div>
         ${g.dot != null ? `<div class="scale-dot" style="left:${g.dot.toFixed(1)}%"></div>` : ''}
@@ -65,7 +72,7 @@ function engLine(record, meta, engScore) {
 // ── 카드 ─────────────────────────────────────
 export function renderCard(record, score, idx, engScore = null) {
   const meta = record._meta, uni = record._uni;
-  const verdict = verdictOf(record, meta, score);
+  const verdict = verdictOf(record, meta, score, engScore);
   const badge = verdict || VERDICTS.정보없음; // 미입력 열람 모드에선 배지 숨김 처리(아래)
   const showBadge = verdict != null; // 성적 미입력이면 배지 없음
   const isJungsi = meta.admissionRound === '정시';
@@ -78,7 +85,7 @@ export function renderCard(record, score, idx, engScore = null) {
     : '';
 
   const gunTag = isJungsi && record.gun ? ` · <span class="gun-tag">${esc(record.gun)}군</span>` : '';
-  const reason = verdictReason(record, meta, score, verdict);
+  const reason = verdictReason(record, meta, score, verdict, engScore);
 
   // 상세 그리드
   const rows = [
@@ -113,7 +120,7 @@ export function renderCard(record, score, idx, engScore = null) {
       </div>
       <h3 class="card-dept">${esc(record.dept)}</h3>
       <p class="card-screening">${esc(record.screeningName)}${gunTag}</p>
-      ${scaleBar(record, meta, score, verdict)}
+      ${scaleBar(record, meta, score, verdict, engScore)}
       ${engLine(record, meta, engScore)}
     </button>
     <div class="card-detail">
@@ -125,10 +132,10 @@ export function renderCard(record, score, idx, engScore = null) {
 }
 
 // ── 요약 스트립 ─────────────────────────────────────
-export function renderSummary(records, score) {
+export function renderSummary(records, score, engGrade = null) {
   const counts = {};
   for (const r of records) {
-    const v = verdictOf(r, r._meta, score) || VERDICTS.정보없음;
+    const v = verdictOf(r, r._meta, score, engGrade) || VERDICTS.정보없음;
     counts[v.key] = (counts[v.key] || 0) + 1;
   }
   const cells = VERDICT_ORDER
@@ -142,7 +149,7 @@ export function renderSummary(records, score) {
 }
 
 // 판정별 개수(정렬 우선순위용)
-export function verdictKey(record, score) {
-  const v = verdictOf(record, record._meta, score) || VERDICTS.정보없음;
+export function verdictKey(record, score, engGrade = null) {
+  const v = verdictOf(record, record._meta, score, engGrade) || VERDICTS.정보없음;
   return v.key;
 }
