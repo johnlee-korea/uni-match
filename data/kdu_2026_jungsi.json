@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "university": "극동대학교",
+    "universityCode": "KDU",
+    "campus": "",
+    "region": "",
+    "year": 2026,
+    "admissionRound": "정시",
+    "screeningType": "정시",
+    "cutType": "70",
+    "referenceOnly": false,
+    "source": "대입정보포털 어디가",
+    "note": "정시 판정은 평균백분위(70% 기준). pct50/pct70=평균백분위, score50/70=환산점수. gun=모집군.",
+    "omittedNoData": {
+      "count": 40,
+      "byGroup": {
+        "모집인원 없음": 39,
+        "모집인원 3명 이하": 1
+      },
+      "note": "미제출(0명 모집/미충원) 모집단위는 결과에서 제외, 건수만 표기"
+    }
+  },
+  "records": [
+    { "screeningName": "수능(일반학생)", "gun": "나", "dept": "간호학과", "field": "보건의료", "quotaFinal": 15, "ratio": 4.8, "waitlistFilled": 7, "score50": 409.8, "score70": 404.7, "pct50": 52, "pct70": 51, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(일반학생)", "gun": "나", "dept": "임상병리학과", "field": "보건의료", "quotaFinal": 7, "ratio": 4.14, "waitlistFilled": 14, "score50": 648.5, "score70": 638, "pct50": 50, "pct70": 52, "remark": null, "eng50": 3, "eng70": 4 },
+    { "screeningName": "수능(일반학생)", "gun": "나", "dept": "작업치료학과", "field": "보건의료", "quotaFinal": 35, "ratio": 1.8, "waitlistFilled": 28, "score50": 305.5, "score70": null, "pct50": 29, "pct70": null, "remark": "70% 컷 원자료 미산출(sentinel)", "eng50": 6, "eng70": null },
+    { "screeningName": "수능(일반학생)", "gun": "나", "dept": "해킹보안학과", "field": "공학", "quotaFinal": 20, "ratio": 2.5, "waitlistFilled": 26, "score50": 383, "score70": 152, "pct50": 27, "pct70": 9, "remark": null, "eng50": 5, "eng70": 7 }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "university": "중원대학교",
+    "universityCode": "JWU",
+    "campus": "",
+    "region": "",
+    "year": 2026,
+    "admissionRound": "정시",
+    "screeningType": "정시",
+    "cutType": "70",
+    "referenceOnly": false,
+    "source": "대입정보포털 어디가",
+    "note": "정시 판정은 평균백분위(70% 기준). pct50/pct70=평균백분위, score50/70=환산점수. gun=모집군.",
+    "omittedNoData": { "count": 28, "byGroup": { "미지원자로 산출불가": 18, "3명이하로 산출불가": 8, "추가 안내자료 참고": 1, "값 미산출(전셀 1 placeholder)": 1 }, "note": "미제출(0명 모집/미충원·값미산출) 모집단위는 결과에서 제외, 건수만 표기" }
+  },
+  "records": [
+    { "screeningName": "수능위주(일반전형Ⅱ)", "gun": "가", "dept": "스포츠과학과", "field": "예체능", "quotaFinal": 16, "ratio": 1.2, "waitlistFilled": 0, "score50": 256.34, "score70": 256.34, "pct50": 22, "pct70": 22, "remark": null, "eng50": 5, "eng70": 5 },
+    { "screeningName": "수능위주(일반전형Ⅱ)", "gun": "가", "dept": "글로벌항공서비스학과", "field": "인문", "quotaFinal": 6, "ratio": 1.2, "waitlistFilled": 0, "score50": 261.67, "score70": 261.67, "pct50": 28, "pct70": 28, "remark": null, "eng50": 6, "eng70": 6 },
+
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "운동레저학부", "field": "예체능", "quotaFinal": 20, "ratio": 1.33, "waitlistFilled": 0, "score50": 104.23, "score70": 104.23, "pct50": 10, "pct70": 10, "remark": null, "eng50": 9, "eng70": 9 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "항공운항학과", "field": "공학", "quotaFinal": 12, "ratio": 3.75, "waitlistFilled": 0, "score50": 647.02, "score70": 618.72, "pct50": 53, "pct70": 44, "remark": null, "eng50": 3, "eng70": 4 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "항공정비학과", "field": "공학", "quotaFinal": 15, "ratio": 5.46, "waitlistFilled": 0, "score50": 560.44, "score70": 527.14, "pct50": 44, "pct70": 39, "remark": null, "eng50": 4, "eng70": 4 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "스포츠산업학과", "field": "예체능", "quotaFinal": 16, "ratio": 1.77, "waitlistFilled": 0, "score50": 447.22, "score70": 386.95, "pct50": 28, "pct70": 21, "remark": null, "eng50": 5, "eng70": 5 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "보건복지학과", "field": "보건의료", "quotaFinal": 17, "ratio": 3.21, "waitlistFilled": 0, "score50": 460.54, "score70": 445.89, "pct50": 38, "pct70": 27, "remark": null, "eng50": 5, "eng70": 5 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "드론봇군사학과", "field": "공학", "quotaFinal": 9, "ratio": 1.9, "waitlistFilled": 0, "score50": 435.57, "score70": 407.59, "pct50": 29, "pct70": 15, "remark": null, "eng50": 6, "eng70": 6 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "전기반도체컴퓨터공학과", "field": "공학", "quotaFinal": 39, "ratio": 1.81, "waitlistFilled": 0, "score50": 447.22, "score70": 415.92, "pct50": 38, "pct70": 31, "remark": null, "eng50": 4, "eng70": 5 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "기계항공우주공학과", "field": "공학", "quotaFinal": 6, "ratio": 2, "waitlistFilled": 0, "score50": 515.49, "score70": 482.19, "pct50": 43, "pct70": 40, "remark": null, "eng50": 4, "eng70": 5 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "경찰행정학과", "field": "인문", "quotaFinal": 11, "ratio": 4.18, "waitlistFilled": 0, "score50": 537.13, "score70": 460.54, "pct50": 47, "pct70": 41, "remark": null, "eng50": 4, "eng70": 5 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "바이오산업학과", "field": "자연", "quotaFinal": 19, "ratio": 2.36, "waitlistFilled": 0, "score50": 643.69, "score70": 643.69, "pct50": 58, "pct70": 58, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "간호학과", "field": "보건의료", "quotaFinal": 23, "ratio": 4, "waitlistFilled": 0, "score50": 683.65, "score70": 671.66, "pct50": 66, "pct70": 62, "remark": null, "eng50": 5, "eng70": 4 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "임상병리학과", "field": "보건의료", "quotaFinal": 22, "ratio": 2.32, "waitlistFilled": 0, "score50": 607.06, "score70": 578.42, "pct50": 51, "pct70": 35, "remark": null, "eng50": 4, "eng70": 5 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "작업치료학과", "field": "보건의료", "quotaFinal": 50, "ratio": 1.5, "waitlistFilled": 0, "score50": 452.22, "score70": 413.59, "pct50": 29, "pct70": 16, "remark": null, "eng50": 5, "eng70": 6 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "만화애니메이션학과", "field": "예체능", "quotaFinal": 6, "ratio": 3, "waitlistFilled": 0, "score50": 400.6, "score70": 383.28, "pct50": 27, "pct70": 25, "remark": null, "eng50": 4, "eng70": 5 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "스포츠지도학과", "field": "예체능", "quotaFinal": 12, "ratio": 2.09, "waitlistFilled": 0, "score50": 227.44, "score70": 171.5, "pct50": 19, "pct70": 9, "remark": null, "eng50": 6, "eng70": 7 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "자율전공학부", "field": "기타", "quotaFinal": 15, "ratio": 2.58, "waitlistFilled": 0, "score50": 473.86, "score70": 444.56, "pct50": 36, "pct70": 29, "remark": null, "eng50": 5, "eng70": 5 },
+    { "screeningName": "수능위주(일반전형Ⅰ)", "gun": "가", "dept": "스마트농산림학과", "field": "자연", "quotaFinal": 33, "ratio": 0.83, "waitlistFilled": 0, "score50": 224.11, "score70": 222.78, "pct50": 28, "pct70": 19, "remark": null, "eng50": 7, "eng70": 7 },
+
+    { "screeningName": "수능위주(농어촌학생)", "gun": "가", "dept": "항공정비학과", "field": "공학", "quotaFinal": 0, "ratio": 0, "waitlistFilled": 0, "score50": 307.36, "score70": 307.36, "pct50": 26, "pct70": 26, "remark": null, "eng50": 6, "eng70": 6 },
+    { "screeningName": "수능위주(농어촌학생)", "gun": "가", "dept": "간호학과", "field": "보건의료", "quotaFinal": 0, "ratio": 0, "waitlistFilled": 0, "score50": 452.22, "score70": 359.64, "pct50": 37, "pct70": 26, "remark": null, "eng50": 5, "eng70": 5 }
+  ]
+}

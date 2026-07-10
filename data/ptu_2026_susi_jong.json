@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "university": "평택대학교",
+    "universityCode": "PTU",
+    "campus": "",
+    "region": "",
+    "year": 2026,
+    "admissionRound": "수시",
+    "screeningType": "종합",
+    "cutType": "70",
+    "referenceOnly": true,
+    "source": "대입정보포털 어디가",
+    "note": "학생부종합=서류·면접 중심 정성평가. 컷(환산등급)은 참고용이며 판정 배지 대신 '참고' 표시. 환산점수 미제공(-).",
+    "omittedNoData": { "count": 0, "byScreening": {}, "note": "미제출(작년 데이터 없음) 모집단위는 결과에서 제외, 건수만 표기. 종합 PTU종합 전형 9개 모집단위 모두 환산등급 데이터 제시되어 제외 건 없음" }
+  },
+  "records": [
+    { "screeningName": "학생부종합(PTU종합)", "dept": "스마트모빌리티학과", "field": "공학", "quotaFinal": 7, "ratio": 5.86, "waitlistFilled": 14, "score50": null, "score70": null, "cut50": 5.66, "cut70": 5.81, "remark": null },
+    { "screeningName": "학생부종합(PTU종합)", "dept": "융합소프트웨어학과", "field": "공학", "quotaFinal": 6, "ratio": 7.83, "waitlistFilled": 9, "score50": null, "score70": null, "cut50": 5.12, "cut70": 5.27, "remark": null },
+    { "screeningName": "학생부종합(PTU종합)", "dept": "데이터정보학과", "field": "공학", "quotaFinal": 6, "ratio": 7.50, "waitlistFilled": 6, "score50": null, "score70": null, "cut50": 5.61, "cut70": 5.66, "remark": null },
+    { "screeningName": "학생부종합(PTU종합)", "dept": "정보통신학과", "field": "공학", "quotaFinal": 6, "ratio": 5.50, "waitlistFilled": 10, "score50": null, "score70": null, "cut50": 5.66, "cut70": 5.75, "remark": null },
+    { "screeningName": "학생부종합(PTU종합)", "dept": "아동·청소년교육상담학과", "field": "인문", "quotaFinal": 9, "ratio": 9.89, "waitlistFilled": 14, "score50": null, "score70": null, "cut50": 5.11, "cut70": 5.27, "remark": null },
+    { "screeningName": "학생부종합(PTU종합)", "dept": "광고홍보학과", "field": "인문", "quotaFinal": 8, "ratio": 11.38, "waitlistFilled": 13, "score50": null, "score70": null, "cut50": 4.91, "cut70": 5.14, "remark": null },
+    { "screeningName": "학생부종합(PTU종합)", "dept": "사회복지학과", "field": "인문", "quotaFinal": 10, "ratio": 8.20, "waitlistFilled": 13, "score50": null, "score70": null, "cut50": 5.2, "cut70": 5.45, "remark": null },
+    { "screeningName": "학생부종합(PTU종합)", "dept": "경영학과", "field": "인문", "quotaFinal": 8, "ratio": 11.13, "waitlistFilled": 12, "score50": null, "score70": null, "cut50": 5.46, "cut70": 5.83, "remark": null },
+    { "screeningName": "학생부종합(PTU종합)", "dept": "국제무역행정학과", "field": "인문", "quotaFinal": 6, "ratio": 10.17, "waitlistFilled": 5, "score50": null, "score70": null, "cut50": 5.43, "cut70": 5.75, "remark": null }
+  ]
+}

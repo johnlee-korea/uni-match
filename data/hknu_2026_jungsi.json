@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "university": "한경국립대학교",
+    "universityCode": "HKNU",
+    "campus": "",
+    "region": "",
+    "year": 2026,
+    "admissionRound": "정시",
+    "screeningType": "정시",
+    "cutType": "70",
+    "referenceOnly": false,
+    "source": "대입정보포털 어디가",
+    "note": "정시 판정은 평균백분위(70% 기준). pct50/pct70=평균백분위, score50/70=환산점수. gun=모집군.",
+    "omittedNoData": {
+      "count": 52,
+      "byGroup": {
+        "모집인원 3명 이하": 48,
+        "실기전형으로 미공개": 4
+      },
+      "note": "미제출(3명 이하 모집단위/실기전형 미공개) 모집단위는 결과에서 제외, 건수만 표기. 전 모집단위 정시(다)군."
+    }
+  },
+  "records": [
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "법경영학부", "field": "인문", "quotaFinal": 5, "ratio": 0, "waitlistFilled": 0, "score50": 800, "score70": 786, "pct50": 90, "pct70": 76, "remark": null, "eng50": 4, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "인문융합공공인재학부", "field": "기타", "quotaFinal": 5, "ratio": 0, "waitlistFilled": 0, "score50": 792, "score70": 788, "pct50": 80, "pct70": 73, "remark": null, "eng50": 3, "eng70": 2 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "사회안전시스템공학부", "field": "공학", "quotaFinal": 7, "ratio": 0, "waitlistFilled": 0, "score50": 837, "score70": 836, "pct50": 65, "pct70": 74, "remark": null, "eng50": 3, "eng70": null },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "건설환경공학부", "field": "공학", "quotaFinal": 5, "ratio": 0, "waitlistFilled": 0, "score50": 859, "score70": 827, "pct50": 74, "pct70": 62, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "HK자율전공학부", "field": "기타", "quotaFinal": 52, "ratio": 0, "waitlistFilled": 0, "score50": 790, "score70": 698, "pct50": 77, "pct70": 72, "remark": null, "eng50": 3, "eng70": null },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "웰니스산업융합학부", "field": "기타", "quotaFinal": 4, "ratio": 0, "waitlistFilled": 0, "score50": 823, "score70": 823, "pct50": 72, "pct70": 65, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "컴퓨터응용수학부", "field": "자연", "quotaFinal": 5, "ratio": 0, "waitlistFilled": 0, "score50": 890, "score70": 877, "pct50": 72, "pct70": 67, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "AI반도체융합전공", "field": "공학", "quotaFinal": 7, "ratio": 0, "waitlistFilled": 0, "score50": 886, "score70": 860, "pct50": 83, "pct70": 84, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "식물자원조경학부", "field": "자연", "quotaFinal": 7, "ratio": 0, "waitlistFilled": 0, "score50": 820, "score70": 814, "pct50": 79, "pct70": 69, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "의료재활공학전공", "field": "보건의료", "quotaFinal": 5, "ratio": 0, "waitlistFilled": 0, "score50": 880, "score70": 872, "pct50": 86, "pct70": 85, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "정보보안전공", "field": "공학", "quotaFinal": 4, "ratio": 0, "waitlistFilled": 0, "score50": 836, "score70": 825, "pct50": 69, "pct70": 75, "remark": null, "eng50": 4, "eng70": null },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "식품생명화학공학부", "field": "공학", "quotaFinal": 5, "ratio": 0, "waitlistFilled": 0, "score50": 839, "score70": 835, "pct50": 71, "pct70": 68, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "화학공학전공", "field": "공학", "quotaFinal": 7, "ratio": 0, "waitlistFilled": 0, "score50": 864, "score70": 861, "pct50": 78, "pct70": 81, "remark": null, "eng50": 4, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "생명공학부", "field": "자연", "quotaFinal": 4, "ratio": 0, "waitlistFilled": 0, "score50": 831, "score70": 799, "pct50": 71, "pct70": 77, "remark": null, "eng50": 2, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "동물생명융합학부", "field": "자연", "quotaFinal": 4, "ratio": 0, "waitlistFilled": 0, "score50": 773, "score70": 753, "pct50": 72, "pct70": 68, "remark": null, "eng50": 3, "eng70": 4 }
+  ]
+}

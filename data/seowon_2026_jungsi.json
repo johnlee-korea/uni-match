@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "university": "서원대학교",
+    "universityCode": "SEOWON",
+    "campus": "",
+    "region": "",
+    "year": 2026,
+    "admissionRound": "정시",
+    "screeningType": "정시",
+    "cutType": "70",
+    "referenceOnly": false,
+    "source": "대입정보포털 어디가",
+    "note": "정시 판정은 평균백분위(70% 기준). pct50/pct70=평균백분위, score50/70=환산점수. gun=모집군.",
+    "omittedNoData": { "count": 112, "byGroup": { "정시 미모집": 50, "모집인원이 3명 이하": 61, "만학도 대상 전형": 1 }, "note": "미제출(정시 미모집/3명 이하/만학도) 모집단위는 결과에서 제외, 건수만 표기" }
+  },
+  "records": [
+    { "screeningName": "수능(다군 일반전형)", "gun": "다", "dept": "체육교육과", "field": "예체능", "quotaFinal": 10, "ratio": 9.5, "waitlistFilled": 13, "score50": 520.3, "score70": 507.6, "pct50": 84, "pct70": 82, "remark": null, "eng50": 2, "eng70": 3 },
+    { "screeningName": "수능(다군 일반전형)", "gun": "다", "dept": "음악교육과", "field": "예체능", "quotaFinal": 8, "ratio": 3.9, "waitlistFilled": 11, "score50": 405.9, "score70": 379.2, "pct50": 61, "pct70": 55, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(다군 일반전형)", "gun": "다", "dept": "뷰티학과", "field": "예체능", "quotaFinal": 7, "ratio": 6.1, "waitlistFilled": 5, "score50": 687, "score70": 668, "pct50": 62, "pct70": 61, "remark": null, "eng50": 5, "eng70": 5 },
+    { "screeningName": "수능(다군 일반전형)", "gun": "다", "dept": "컴퓨터공학과", "field": "공학", "quotaFinal": 8, "ratio": 13.3, "waitlistFilled": 13, "score50": 722, "score70": 712, "pct50": 68, "pct70": 67, "remark": null, "eng50": 5, "eng70": 5 },
+    { "screeningName": "수능(다군 일반전형)", "gun": "다", "dept": "환경공학과", "field": "공학", "quotaFinal": 8, "ratio": 14.1, "waitlistFilled": 10, "score50": 726, "score70": 716, "pct50": 68, "pct70": 68, "remark": null, "eng50": 5, "eng70": 5 }
+  ]
+}

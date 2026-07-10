@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "university": "한서대학교",
+    "universityCode": "HANSEO",
+    "campus": "",
+    "region": "",
+    "year": 2026,
+    "admissionRound": "정시",
+    "screeningType": "정시",
+    "cutType": "70",
+    "referenceOnly": false,
+    "source": "대입정보포털 어디가",
+    "note": "정시 판정은 평균백분위(70% 기준). pct50/pct70=평균백분위, score50/70=환산점수. gun=모집군.",
+    "omittedNoData": {
+      "count": 15,
+      "byGroup": {
+        "3명이하 미공개": 15
+      },
+      "note": "미제출(0명 모집/미충원) 모집단위는 결과에서 제외, 건수만 표기"
+    }
+  },
+  "records": [
+    { "screeningName": "수능(일반전형)", "gun": "가", "dept": "항공운항학과", "field": "공학", "quotaFinal": 10, "ratio": 5.80, "waitlistFilled": 1, "score50": 474.55, "score70": 470.7, "pct50": 91, "pct70": 93, "remark": null, "eng50": 2, "eng70": 2 },
+    { "screeningName": "수능(일반전형)", "gun": "나", "dept": "예체능전공자율학과", "field": "예체능", "quotaFinal": 9, "ratio": 7.56, "waitlistFilled": 14, "score50": 327.25, "score70": 306, "pct50": 53, "pct70": 48, "remark": null, "eng50": 3, "eng70": 5 },
+    { "screeningName": "수능(일반전형)", "gun": "나", "dept": "인문사회전공자율학과", "field": "인문", "quotaFinal": 11, "ratio": 9.55, "waitlistFilled": 12, "score50": 404.25, "score70": 393.8, "pct50": 70, "pct70": 68, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "환경·토목·건축학과", "field": "공학", "quotaFinal": 14, "ratio": 3.00, "waitlistFilled": 16, "score50": 344.5, "score70": 284.5, "pct50": 69, "pct70": 45, "remark": null, "eng50": 6, "eng70": 6 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "항공전자공학과", "field": "공학", "quotaFinal": 5, "ratio": 6.00, "waitlistFilled": 3, "score50": 409.4, "score70": 405.25, "pct50": 79, "pct70": 76, "remark": null, "eng50": 4, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "무인항공기학과", "field": "공학", "quotaFinal": 5, "ratio": 4.20, "waitlistFilled": 2, "score50": 411, "score70": 401.9, "pct50": 78, "pct70": 77, "remark": null, "eng50": 3, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "항공정비학과", "field": "공학", "quotaFinal": 5, "ratio": 8.00, "waitlistFilled": 3, "score50": 447.5, "score70": 443, "pct50": 89, "pct70": 88, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "자유전공학과", "field": "기타", "quotaFinal": 10, "ratio": 6.40, "waitlistFilled": 8, "score50": 429, "score70": 425.75, "pct50": 84, "pct70": 81, "remark": null, "eng50": 3, "eng70": 2 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "항공교통물류학과", "field": "인문", "quotaFinal": 6, "ratio": 9.67, "waitlistFilled": 9, "score50": 454.5, "score70": 440.7, "pct50": 89, "pct70": 85, "remark": null, "eng50": 3, "eng70": 2 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "항공AI소프트웨어학과", "field": "공학", "quotaFinal": 15, "ratio": 4.20, "waitlistFilled": 10, "score50": 382, "score70": 375.5, "pct50": 76, "pct70": 68, "remark": null, "eng50": 5, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "AI로보틱스학과", "field": "공학", "quotaFinal": 19, "ratio": 2.42, "waitlistFilled": 11, "score50": 310.25, "score70": 274.3, "pct50": 53, "pct70": 41, "remark": null, "eng50": 5, "eng70": 5 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "항공기계공학과", "field": "공학", "quotaFinal": 5, "ratio": 6.80, "waitlistFilled": 0, "score50": 423.6, "score70": 422.92, "pct50": 82, "pct70": 81, "remark": null, "eng50": 3, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "치위생학과", "field": "보건의료", "quotaFinal": 4, "ratio": 6.00, "waitlistFilled": 2, "score50": 371.25, "score70": 360, "pct50": 67, "pct70": 65, "remark": null, "eng50": 3, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "간호학과", "field": "보건의료", "quotaFinal": 7, "ratio": 7.14, "waitlistFilled": 13, "score50": 407.75, "score70": 397.5, "pct50": 81, "pct70": 75, "remark": null, "eng50": 4, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "작업치료학과", "field": "보건의료", "quotaFinal": 8, "ratio": 5.25, "waitlistFilled": 8, "score50": 341.5, "score70": 332, "pct50": 62, "pct70": 54, "remark": null, "eng50": 4, "eng70": 3 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "신소재화학공학과", "field": "공학", "quotaFinal": 20, "ratio": 2.90, "waitlistFilled": 16, "score50": 362.5, "score70": 346.25, "pct50": 61, "pct70": 64, "remark": null, "eng50": 3, "eng70": 5 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "수산생명의학과", "field": "자연", "quotaFinal": 7, "ratio": 2.57, "waitlistFilled": 7, "score50": 275.25, "score70": 259, "pct50": 48, "pct70": 35, "remark": null, "eng50": 6, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "사회복지학과", "field": "인문", "quotaFinal": 7, "ratio": 8.86, "waitlistFilled": 7, "score50": 347, "score70": 334, "pct50": 59, "pct70": 58, "remark": null, "eng50": 3, "eng70": 4 },
+    { "screeningName": "수능(일반전형)", "gun": "다", "dept": "AI모빌리티학과", "field": "공학", "quotaFinal": 16, "ratio": 2.38, "waitlistFilled": 6, "score50": 334, "score70": 326.8, "pct50": 61, "pct70": 59, "remark": null, "eng50": 5, "eng70": 5 }
+  ]
+}

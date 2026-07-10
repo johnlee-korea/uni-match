@@ -144,6 +144,108 @@
         "hyupsung_2026_jungsi.json",
         "hyupsung_2026_susi_jong.json"
       ]
+    },
+    {
+      "code": "KNUT",
+      "name": "국립한국교통대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "knut_2026_susi_gyo.json",
+        "knut_2026_susi_jong.json",
+        "knut_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "CJU",
+      "name": "청주대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "cju_2026_susi_gyo.json",
+        "cju_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "SEOWON",
+      "name": "서원대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "seowon_2026_susi_gyo.json",
+        "seowon_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "SEMYUNG",
+      "name": "세명대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "semyung_2026_susi_gyo.json",
+        "semyung_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "KDU",
+      "name": "극동대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "kdu_2026_susi_gyo.json",
+        "kdu_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "JWU",
+      "name": "중원대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "jwu_2026_susi_gyo.json",
+        "jwu_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "HANSEO",
+      "name": "한서대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "hanseo_2026_susi_gyo.json",
+        "hanseo_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "CHUNGWOON",
+      "name": "청운대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "chungwoon_2026_susi_gyo.json",
+        "chungwoon_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "HKNU",
+      "name": "한경국립대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "hknu_2026_susi_gyo.json",
+        "hknu_2026_susi_jong.json",
+        "hknu_2026_jungsi.json"
+      ]
+    },
+    {
+      "code": "PTU",
+      "name": "평택대학교",
+      "campus": "",
+      "campusMerged": false,
+      "files": [
+        "ptu_2026_susi_gyo.json",
+        "ptu_2026_susi_jong.json"
+      ]
     }
   ],
   "pending": []

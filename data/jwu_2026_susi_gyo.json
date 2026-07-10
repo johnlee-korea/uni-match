@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "university": "중원대학교",
+    "universityCode": "JWU",
+    "campus": "",
+    "region": "",
+    "year": 2026,
+    "admissionRound": "수시",
+    "screeningType": "교과",
+    "cutType": "70",
+    "referenceOnly": false,
+    "source": "대입정보포털 어디가",
+    "note": "컷=환산등급(70% 기준). 환산점수는 참고용 score 필드로 보관.",
+    "omittedNoData": { "count": 43, "byScreening": { "학생부교과(농어촌학생)": 19, "학생부교과(지역인재전형)": 5, "학생부교과(장애인등대상자전형)": 2, "학생부교과(일반전형Ⅱ)": 1, "학생부교과(특성화고교졸업자)": 8, "학생부교과(기회균형선발전형)": 8 }, "note": "미제출(작년 데이터 없음) 모집단위는 결과에서 제외, 건수만 표기" }
+  },
+  "records": [
+    { "screeningName": "학생부교과(농어촌학생)", "dept": "간호학과", "field": "보건의료", "quotaFinal": 0, "ratio": 0, "waitlistFilled": 0, "score50": 803.93, "score70": 767.5, "cut50": 4.27, "cut70": 4.88, "remark": null },
+    { "screeningName": "학생부교과(농어촌학생)", "dept": "만화애니메이션학과", "field": "예체능", "quotaFinal": 0, "ratio": 0, "waitlistFilled": 0, "score50": 845, "score70": 843, "cut50": 3.58, "cut70": 3.62, "remark": null },
+
+    { "screeningName": "학생부교과(지역인재전형)", "dept": "간호학과", "field": "보건의료", "quotaFinal": 47, "ratio": 2.83, "waitlistFilled": 64, "score50": 790, "score70": 775, "cut50": 4.5, "cut70": 4.75, "remark": null },
+
+    { "screeningName": "학생부교과(일반전형Ⅱ)", "dept": "항공정비학과", "field": "공학", "quotaFinal": 16, "ratio": 1.33, "waitlistFilled": 0, "score50": 629.14, "score70": 612.8, "cut50": 4.29, "cut70": 4.6, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅱ)", "dept": "항공운항학과", "field": "공학", "quotaFinal": 32, "ratio": 2.05, "waitlistFilled": 15, "score50": 579, "score70": 554.3, "cut50": 5.25, "cut70": 5.73, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅱ)", "dept": "기계항공우주공학과", "field": "공학", "quotaFinal": 9, "ratio": 1.2, "waitlistFilled": 0, "score50": 748, "score70": 748, "cut50": 2, "cut70": 2, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅱ)", "dept": "전기반도체컴퓨터공학과", "field": "공학", "quotaFinal": 9, "ratio": 1.6, "waitlistFilled": 0, "score50": 605, "score70": 605, "cut50": 4.75, "cut70": 4.75, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅱ)", "dept": "드론봇군사학과", "field": "공학", "quotaFinal": 9, "ratio": 2.43, "waitlistFilled": 5, "score50": 592, "score70": 534.8, "cut50": 4.63, "cut70": 5.14, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅱ)", "dept": "경찰행정학과", "field": "인문", "quotaFinal": 9, "ratio": 2, "waitlistFilled": 0, "score50": 657, "score70": 657, "cut50": 3.75, "cut70": 3.75, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅱ)", "dept": "임상병리학과", "field": "보건의료", "quotaFinal": 20, "ratio": 1.73, "waitlistFilled": 5, "score50": 608.34, "score70": 592, "cut50": 4.69, "cut70": 5, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅱ)", "dept": "간호학과", "field": "보건의료", "quotaFinal": 28, "ratio": 2.61, "waitlistFilled": 17, "score50": 492, "score70": 492, "cut50": 4, "cut70": 4.74, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅱ)", "dept": "뷰티메디컬학과", "field": "보건의료", "quotaFinal": 17, "ratio": 4.8, "waitlistFilled": 13, "score50": 579, "score70": 501, "cut50": 4.75, "cut70": 4.95, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅱ)", "dept": "운동레저학부", "field": "예체능", "quotaFinal": 16, "ratio": 2.46, "waitlistFilled": 10, "score50": 565.35, "score70": 541.95, "cut50": 5.4, "cut70": 5.7, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅱ)", "dept": "글로벌항공서비스학과", "field": "인문", "quotaFinal": 33, "ratio": 5.31, "waitlistFilled": 40, "score50": 662.41, "score70": 616.96, "cut50": 3.67, "cut70": 4.54, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅱ)", "dept": "스포츠과학과", "field": "예체능", "quotaFinal": 21, "ratio": 2.88, "waitlistFilled": 17, "score50": 538.14, "score70": 505.33, "cut50": 6.04, "cut70": 6.67, "remark": null },
+
+    { "screeningName": "학생부교과(기회균형선발전형)", "dept": "간호학과", "field": "보건의료", "quotaFinal": 4, "ratio": 4.25, "waitlistFilled": 11, "score50": 782.5, "score70": 772.21, "cut50": 4.63, "cut70": 4.8, "remark": null },
+
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "운동레저학부", "field": "예체능", "quotaFinal": 6, "ratio": 5.33, "waitlistFilled": 20, "score50": 842.5, "score70": 785.5, "cut50": 3.24, "cut70": 3.39, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "보건복지학과", "field": "보건의료", "quotaFinal": 26, "ratio": 1.61, "waitlistFilled": 2, "score50": 887.5, "score70": 840.8, "cut50": 2.88, "cut70": 3.65, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "종교문화학부", "field": "인문", "quotaFinal": 15, "ratio": 1, "waitlistFilled": 0, "score50": 880, "score70": 868, "cut50": 3, "cut70": 3.2, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "스포츠산업학과", "field": "예체능", "quotaFinal": 11, "ratio": 3.29, "waitlistFilled": 15, "score50": 685, "score70": 667, "cut50": 6.25, "cut70": 6.55, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "항공정비학과", "field": "공학", "quotaFinal": 19, "ratio": 4.27, "waitlistFilled": 41, "score50": 807.5, "score70": 797.8, "cut50": 4.21, "cut70": 4.37, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "스마트농산림학과", "field": "자연", "quotaFinal": 22, "ratio": 1.17, "waitlistFilled": 0, "score50": 797.5, "score70": 782.5, "cut50": 4.38, "cut70": 4.63, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "기계항공우주공학과", "field": "공학", "quotaFinal": 25, "ratio": 1.68, "waitlistFilled": 13, "score50": 910, "score70": 814, "cut50": 2.5, "cut70": 4.1, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "전기반도체컴퓨터공학과", "field": "공학", "quotaFinal": 40, "ratio": 1.36, "waitlistFilled": 0, "score50": 880, "score70": 864.8, "cut50": 3, "cut70": 3.25, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "드론봇군사학과", "field": "공학", "quotaFinal": 11, "ratio": 4.57, "waitlistFilled": 11, "score50": 825, "score70": 819, "cut50": 3.92, "cut70": 4.02, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "작업치료학과", "field": "보건의료", "quotaFinal": 58, "ratio": 2.13, "waitlistFilled": 28, "score50": 800.5, "score70": 788.6, "cut50": 4.33, "cut70": 4.52, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "임상병리학과", "field": "보건의료", "quotaFinal": 38, "ratio": 4.63, "waitlistFilled": 101, "score50": 820, "score70": 805, "cut50": 4, "cut70": 4.25, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "간호학과", "field": "보건의료", "quotaFinal": 64, "ratio": 6.36, "waitlistFilled": 183, "score50": 865, "score70": 852.4, "cut50": 3.25, "cut70": 3.46, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "뷰티메디컬학과", "field": "보건의료", "quotaFinal": 17, "ratio": 6, "waitlistFilled": 34, "score50": 871, "score70": 819.4, "cut50": 3.15, "cut70": 4.01, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "경찰행정학과", "field": "인문", "quotaFinal": 29, "ratio": 3.32, "waitlistFilled": 48, "score50": 790, "score70": 743.28, "cut50": 4.5, "cut70": 5.28, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "바이오산업학과", "field": "자연", "quotaFinal": 34, "ratio": 1.15, "waitlistFilled": 0, "score50": 820, "score70": 775, "cut50": 4, "cut70": 4.75, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "자율전공학부", "field": "기타", "quotaFinal": 34, "ratio": 2.33, "waitlistFilled": 20, "score50": 788, "score70": 755.5, "cut50": 4.53, "cut70": 5.08, "remark": null },
+    { "screeningName": "학생부교과(일반전형Ⅰ)", "dept": "만화애니메이션학과", "field": "예체능", "quotaFinal": 14, "ratio": 5.38, "waitlistFilled": 14, "score50": 835, "score70": 835, "cut50": 3.75, "cut70": 3.75, "remark": null }
+  ]
+}
